@@ -4,7 +4,7 @@ Our paper has been accepted to AAAI-2026! Paper
 
 ## Environment
 ```conda create -n myenv python=3.10.13
-   conda activate myenv
+```conda activate myenv
 ```
 
 ## Datasets
