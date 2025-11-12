@@ -1,9 +1,9 @@
 # Signal: Selective Interaction and Global-local Alignment for Multi-Modal Object Re-Identification
 ## News🍎
-Our paper has been accepted to **AAAI-2026**🌹! Paper
+Our paper has been accepted by **AAAI-2026**🌹! Paper
 
 ## Environment🍊
-**Our env: python=3.10.13, torch=2.1.1+cu118,  NVIDIA GeForce RTX 3090 GPU.**
+**Our env: python=3.10.13, torch=2.1.1+cu118, cuda:11.8, NVIDIA GeForce RTX 3090 GPU.**
 
 **You can prepare according to the following steps:**
 ``` 
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 * MSVR310 [GET](https://drive.google.com/file/d/1IxI-fGiluPO_Ies6YjDHeTEuVYhFdYwD/view)
 ## Pretrained Model🍉
-* ViT-B-16 [GET](https://pan.baidu.com/share/init?surl=YPhaL0YgpI-TQ_pSzXHRKw) (52fu)
+* ViT-B-16 [GET](https://pan.baidu.com/share/init?surl=YPhaL0YgpI-TQ_pSzXHRKw?pwd=52fu) 
 ## Training🍒
 ```
 python train.py --config_file configs/RGBNT201/Signal.yml
