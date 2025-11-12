@@ -76,5 +76,5 @@ To address multi-modal object ReID challenges, we propose **Signal**, a selectiv
     <img src="READ_image/offsets.png" alt="offsets" style="width:60%;">
 </p>
 
-## Notes
+## Notes 🍩
 * Thank you for your attention and interest!
