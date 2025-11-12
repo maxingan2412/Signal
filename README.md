@@ -30,7 +30,7 @@ python test.py --config_file configs/RGBNT201/Signal.yml
 ```
 ## Introduction🧅️
 To address multi-modal object ReID challenges, we propose **Signal**, a selective interaction and global-local alignment framework with three components:
-* **Selective Interaction Module (SIM)**: Selects important patch tokens from multi-modal features via intra-modal and inter-modal attention scores.
+* **Selective Interaction Module (SIM)**: Selects important patch tokens from multi-modal features via intra-modal and inter-modal token selection.
 * **Global Alignment Module (GAM)**: Simultaneously aligns multi-modal features by minimizing 3D polyhedra volume in gramian space.
 * **Local Alignment Module (LAM)**: Refines fine-grained alignment via deformable sampling, handling pixel-level misalignment.
 ## Contributions🥬
