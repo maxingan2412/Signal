@@ -65,6 +65,7 @@ class TokenSelection(nn.Module):
         
 
         scores = torch.bmm(q, k.transpose(1, 2)) / math.sqrt(self.dim)  
+        scores = F.softmax(scores, dim=2)
         
 
         rgb_scores = torch.cat([
@@ -221,3 +222,4 @@ class Select_Interactive_Module(nn.Module):
         
 
         return final_feature
+
