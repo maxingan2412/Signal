@@ -41,7 +41,7 @@ To address multi-modal object ReID challenges, we propose **Signal**, a selectiv
 * Extensive experiments on three multi-modal object ReID datasets validate the effectiveness of our method.
 ## Overall Framework🍠
 <p align="center">
-    <img src="READ_image/main.svg" alt="Overall Framework" style="width:100%;">
+    <img src="READ_image/main.png" alt="Overall Framework" style="width:100%;">
 </p>
 
 ### GAM
