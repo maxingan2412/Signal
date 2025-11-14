@@ -30,7 +30,7 @@ Our model's pth files are here:
 |-------|-------|-------|-------|
 | RGBNT201 | 80.3 | 85.2 | [Signal_model.pth](https://pan.baidu.com/s/1RUCXzp_EjsqOaPxWDssGsQ?pwd=sign) |
 | RGBNT100 | 86.3 | 97.6 | [Signal_model.pth](https://pan.baidu.com/s/1RUCXzp_EjsqOaPxWDssGsQ?pwd=sign) |
-| MSVR310 | 53.6 | 71.9 | [Signal_model.pth](https://pan.baidu.com/s/1RUCXzp_EjsqOaPxWDssGsQ?pwd=sign) |
+| MSVR310 | 53.2 | 72.4 | [Signal_model.pth](https://pan.baidu.com/s/1RUCXzp_EjsqOaPxWDssGsQ?pwd=sign) |
 
 ## Test🥝
 ```
