@@ -25,6 +25,11 @@ pip install -r requirements.txt
 python train.py --config_file configs/RGBNT201/Signal.yml
 ```
 ## Our Model🍇
+| 表头1 | 表头2 | 表头3 | 表头4 |
+|-------|-------|-------|-------|
+| 行2列1 | 行2列2 | 行2列3 | 行2列4 |
+| 行3列1 | 行3列2 | 行3列3 | 行3列4 |
+| 行4列1 | 行4列2 | 行4列3 | 行4列4 |
 Our model's pth file and training process record file are here: [Signal_model.pth](https://pan.baidu.com/s/1RUCXzp_EjsqOaPxWDssGsQ?pwd=sign)
 
 ## Test🥝
