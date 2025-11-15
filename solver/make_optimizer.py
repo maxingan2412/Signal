@@ -22,7 +22,12 @@ def make_optimizer(cfg, model, center_criterion):
                 if "base" in key:
                     if "adapter" not in key:
                         lr = cfg.SOLVER.BASE_LR*0.8
-
+                        
+        if cfg.DATASETS.NAMES == 'MSVR310':
+            if "classifier" in key:
+                lr = cfg.SOLVER.BASE_LR * 100
+                weight_decay = cfg.SOLVER.WEIGHT_DECAY_BIAS
+                
         if cfg.SOLVER.LARGE_FC_LR:
             if "classifier" in key or "arcface" in key:
                 lr = cfg.SOLVER.BASE_LR * 2
