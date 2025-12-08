@@ -412,106 +412,82 @@ class R1_mAP_eval():
 
     # 3 similarity distribution
     def plot_similarity_distribution(self, features, ids, title="Cosine Similarity Distribution",base_dir = 'Similarity_pic',condition='baseline'):
-        
-        print("enter plot_similarity_distribution")
-        
-        if not os.path.exists(base_dir):
-            os.makedirs(base_dir)
-        features = features.cpu().detach().numpy()
-        similarity_matrix = cosine_similarity(features)
+    
+    print("enter plot_similarity_distribution")
+    ft = 34
+    if not os.path.exists(base_dir):
+        os.makedirs(base_dir)
+    features = features.cpu().detach().numpy()
+    similarity_matrix = cosine_similarity(features)
 
-        positive_similarities = []
-        negative_similarities = []
+    positive_similarities = []
+    negative_similarities = []
 
-        num_samples = features.shape[0]
-        for i in range(num_samples):
-            for j in range(i + 1, num_samples):  
-                if ids[i] == ids[j]:
-                    positive_similarities.append(similarity_matrix[i, j])  
-                else:
-                    negative_similarities.append(similarity_matrix[i, j])  
-
-        positive_similarities = np.array(positive_similarities)
-        negative_similarities = np.array(negative_similarities)
-
-        mean_positive = np.mean(positive_similarities)
-        mean_negative = np.mean(negative_similarities)
-
-        plt.figure(figsize=(9, 8)) 
-        sns.kdeplot(positive_similarities, label='Positive Pairs (Same ID)', color='green', shade=True)
-        sns.kdeplot(negative_similarities, label='Negative Pairs (Different ID)', color='red', shade=True)
-        plt.axvline(mean_positive, color='green', linestyle='--',
-                    label=f'Mean Positive Similarity: {mean_positive:.4f}')
-        plt.axvline(mean_negative, color='red', linestyle='--', label=f'Mean Negative Similarity: {mean_negative:.4f}')
-
-        plt.text(mean_positive, 0.02, f'{mean_positive:.4f}', color='green', fontsize=18, ha='center', va='bottom')
-        plt.text(mean_negative, 0.02, f'{mean_negative:.4f}', color='red', fontsize=18, ha='center', va='bottom')
-
-        plt.xlabel('Cosine Similarity', fontsize=22)
-        plt.ylabel('Density', fontsize=22)
-        plt.legend(fontsize=24)
-        plt.xticks(fontsize=16)
-        plt.yticks(fontsize=16)
-        plt.grid(True, linestyle='--', alpha=0.5)
-        filename = 'sd_{}.pdf'  
-        save_path = f'{base_dir}/{filename.format(condition)}'
-        plt.savefig(save_path)
-        #plt.show()
-        
-        x_vals = np.linspace(min(min(positive_similarities), min(negative_similarities)),
-                            max(max(positive_similarities), max(negative_similarities)), 1000)
-        
-        
-        from scipy.stats import gaussian_kde
-        kde_positive = gaussian_kde(positive_similarities)
-        kde_negative = gaussian_kde(negative_similarities)
-        
-        y_positive = kde_positive(x_vals)
-        y_negative = kde_negative(x_vals)
-
-       
-        intersection_indices = np.where(np.diff(np.sign(y_positive - y_negative)))[0]
-        intersection_x = x_vals[intersection_indices]
-        intersection_y = y_positive[intersection_indices]  # 或 y_negative[intersection_indices]
-
-        if len(intersection_indices) == 0:
-            if np.all(y_positive <= y_negative):
-                overlap_area = simps(y_positive, x_vals)
+    num_samples = features.shape[0]
+    for i in range(num_samples):
+        for j in range(i + 1, num_samples):  
+            if ids[i] == ids[j]:
+                positive_similarities.append(similarity_matrix[i, j])  
             else:
-                overlap_area = simps(y_negative, x_vals)
-        else:
-            
-            overlap_area = 0.0
-            
-            for i in range(len(intersection_indices)):
-                if i == 0:
-                    x_start = x_vals[0]
-                else:
-                    x_start = intersection_x[i - 1]
-                
-                if i == len(intersection_indices) - 1:
-                    x_end = x_vals[-1]
-                else:
-                    x_end = intersection_x[i + 1]
-                
-                
-                mask = (x_vals >= x_start) & (x_vals <= x_end)
-                x_segment = x_vals[mask]
-                y_positive_segment = y_positive[mask]
-                y_negative_segment = y_negative[mask]
-                
-                
-                overlap_segment = np.minimum(y_positive_segment, y_negative_segment)
-                overlap_area += simps(overlap_segment, x_segment)
+                negative_similarities.append(similarity_matrix[i, j])  
 
-        print(f"Overlap Area between Positive and Negative Distributions: {overlap_area:.4f}")
+    positive_similarities = np.array(positive_similarities)
+    negative_similarities = np.array(negative_similarities)
+
+    mean_positive = np.mean(positive_similarities)
+    mean_negative = np.mean(negative_similarities)
+
+    plt.figure(figsize=(9, 8))
+    sns.kdeplot(positive_similarities, label='Positive', color='green', shade=True)
+    sns.kdeplot(negative_similarities, label='Negative', color='red', shade=True)
+    plt.axvline(mean_positive, color='green', linestyle='--',
+                label=f'Mean Positive')
+    plt.axvline(mean_negative, color='red', linestyle='--', label=f'Mean Negative')
+    plt.ylabel('')
+
+    plt.text(mean_positive, 0.02, f'{mean_positive:.4f}', color='green', fontsize=ft, fontweight='bold', ha='center', va='bottom')
+    plt.text(mean_negative, 0.02, f'{mean_negative:.4f}', color='red', fontsize=ft, fontweight='bold', ha='center', va='bottom')
+
+    # plt.xlabel('Cosine Similarity', fontsize=ft)
+    # plt.ylabel('Density', fontsize=ft)
+    plt.legend(prop={'size': 28, 'weight': 'bold'})
+    plt.xticks(fontsize=ft, fontweight='bold')
+    plt.yticks(fontsize=ft, fontweight='bold')
+    plt.grid(True, linestyle='--', alpha=0.5)
+    filename = 'sd_{}.png'
+    save_path = f'{base_dir}/{filename.format(condition)}'
+    plt.savefig(save_path,dpi=600)
+    #plt.show()
+    
+    x_vals = np.linspace(min(min(positive_similarities), min(negative_similarities)),
+                        max(max(positive_similarities), max(negative_similarities)), 1000)
+
+    from scipy.stats import gaussian_kde
+    from scipy.integrate import simps
+
+    x_vals = np.linspace(
+        min(positive_similarities.min(), negative_similarities.min()),
+        max(positive_similarities.max(), negative_similarities.max()),
+        1000
+    )
+
+    kde_positive = gaussian_kde(positive_similarities)
+    kde_negative = gaussian_kde(negative_similarities)
+
+    y_positive = kde_positive(x_vals)
+    y_negative = kde_negative(x_vals)
+
+    # 关键：重叠面积 = min(两条曲线) 在整个区间的积分
+    overlap_area = simps(np.minimum(y_positive, y_negative), x_vals)
+
+    print(f"Overlap Area between Positive and Negative Distributions: {overlap_area:.4f}")
 
 
-        
-        print(f"Mean Positive Similarity: {mean_positive:.4f}")
-        print(f"Mean Negative Similarity: {mean_negative:.4f}")
-        print(f"Positive Similarity Std Dev: {np.std(positive_similarities):.4f}")
-        print(f"Negative Similarity Std Dev: {np.std(negative_similarities):.4f}")
+    
+    print(f"Mean Positive Similarity: {mean_positive:.4f}")
+    print(f"Mean Negative Similarity: {mean_negative:.4f}")
+    print(f"Positive Similarity Std Dev: {np.std(positive_similarities):.4f}")
+    print(f"Negative Similarity Std Dev: {np.std(negative_similarities):.4f}")
     
 
 
