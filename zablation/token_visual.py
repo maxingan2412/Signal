@@ -48,7 +48,7 @@ class MaskVisualizer:
 
         # 1. 
         if cfg.DATASETS.NAMES == 'RGBNT201':
-            full_path = f'/media/zpp2/Datamy/lyy/512/data/RGBNT201/test/{modality}/{img_path}'
+            full_path = f'../RGBNT201/test/{modality}/{img_path}'
             img = cv2.imread(full_path)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             img = cv2.resize(img, (128, 256)) 

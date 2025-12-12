@@ -6,7 +6,7 @@ from .bases import BaseImageDataset
 
 
 class RGBNT201(BaseImageDataset):
-    dataset_dir = '512/data/RGBNT201'
+    dataset_dir = 'RGBNT201'
 
     def __init__(self, root='', verbose=True, **kwargs):
         super(RGBNT201, self).__init__()

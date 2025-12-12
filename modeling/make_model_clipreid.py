@@ -1,6 +1,9 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import os
+
+
 from .clip.simple_tokenizer import SimpleTokenizer as _Tokenizer
 _tokenizer = _Tokenizer()
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
@@ -172,7 +175,9 @@ def make_model(cfg, num_class, camera_num, view_num):
 
 from .clip import clip
 def load_clip_to_cpu(cfg,backbone_name, h_resolution, w_resolution, vision_stride_size):
-    model_path = '/media/zpp2/Datamy/lyy/512/ViT-B-16.pt'
+    model_path = '../ViT-B-16.pt'
+    abs_model_path = os.path.abspath(model_path)
+    print("model_path (abs):", abs_model_path)
 
     if torch.cuda.is_available():
         map_location = "cuda"

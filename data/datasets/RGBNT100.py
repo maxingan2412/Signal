@@ -21,7 +21,7 @@ class RGBNT100(BaseImageDataset):
     # identities: 1501 (+1 for background)
     # images: 12936 (train) + 3368 (query) + 15913 (gallery)
     """
-    dataset_dir = '512/data/RGBNT100/rgbir'
+    dataset_dir = 'RGBNT100/rgbir'
 
     def __init__(self, root='/home/haoluo/data', verbose=True, **kwargs):
         super(RGBNT100, self).__init__()
