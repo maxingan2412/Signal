@@ -16,7 +16,7 @@ fonttools==4.49.0
 fsspec==2024.9.0
 ftfy==6.2.3
 fvcore==0.1.5.post20221221
-grad-cam @ file:///media/zpp2/Datamy/lyy/512/pytorch-grad-cam
+grad-cam
 grpcio==1.62.1
 h5py==3.10.0
 huggingface-hub==0.21.4
