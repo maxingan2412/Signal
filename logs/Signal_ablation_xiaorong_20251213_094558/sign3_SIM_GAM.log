@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/raid/yij/icme/singlerelated/Signal/train.py", line 38, in <module>
+    cfg.merge_from_file(args.config_file)
+  File "/home/yij/miniconda3/envs/single/lib/python3.10/site-packages/yacs/config.py", line 213, in merge_from_file
+    self.merge_from_other_cfg(cfg)
+  File "/home/yij/miniconda3/envs/single/lib/python3.10/site-packages/yacs/config.py", line 217, in merge_from_other_cfg
+    _merge_a_into_b(cfg_other, self, self, [])
+  File "/home/yij/miniconda3/envs/single/lib/python3.10/site-packages/yacs/config.py", line 478, in _merge_a_into_b
+    _merge_a_into_b(v, b[k], root, key_list + [k])
+  File "/home/yij/miniconda3/envs/single/lib/python3.10/site-packages/yacs/config.py", line 474, in _merge_a_into_b
+    v = _check_and_coerce_cfg_value_type(v, b[k], k, full_key)
+  File "/home/yij/miniconda3/envs/single/lib/python3.10/site-packages/yacs/config.py", line 534, in _check_and_coerce_cfg_value_type
+    raise ValueError(
+ValueError: Type mismatch (<class 'float'> vs. <class 'str'>) with values (1.0 vs. 0.25Signal.yml) for config key: MODEL.ID_LOSS_WEIGHT
