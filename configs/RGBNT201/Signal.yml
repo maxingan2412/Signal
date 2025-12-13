@@ -4,7 +4,7 @@ MODEL:
   SIE_CAMERA: True
   DIRECT: 1
   SIE_COE: 1.0
-  ID_LOSS_WEIGHT: 0.25
+  ID_LOSS_WEIGHT: 0.25Signal.yml
   TRIPLET_LOSS_WEIGHT: 1.0
   Gram_Loss_weight: 0.2
   PAT_Loss_weight: 0.2
