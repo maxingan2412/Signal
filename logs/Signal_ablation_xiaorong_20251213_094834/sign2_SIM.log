@@ -563,3 +563,942 @@ The test feature is normalized
 2025-12-13 09:53:19,918 Signal.train INFO: Epoch[10] Iteration[20/54] Loss: 0.508, Acc: 1.000, Base Lr: 3.17e-04
 2025-12-13 09:53:22,794 Signal.train INFO: Epoch[10] Iteration[30/54] Loss: 0.520, Acc: 0.999, Base Lr: 3.17e-04
 2025-12-13 09:53:25,652 Signal.train INFO: Epoch[10] Iteration[40/54] Loss: 0.514, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:28,602 Signal.train INFO: Epoch[10] Iteration[50/54] Loss: 0.512, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:29,528 Signal.train INFO: Epoch 10 done. Time per batch: 0.304[s] Speed: 210.7[samples/s]
+2025-12-13 09:53:29,530 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:29,530 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:53:29,530 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:53:40,292 Signal.train INFO: Validation Results - Epoch: 10
+2025-12-13 09:53:40,293 Signal.train INFO: mAP: 72.0%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-1  :73.9%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-5  :84.3%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 09:53:40,293 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:40,333 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:40,334 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:53:40,334 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:43,925 Signal.train INFO: Epoch[11] Iteration[10/54] Loss: 0.500, Acc: 0.997, Base Lr: 3.10e-04
+2025-12-13 09:53:46,826 Signal.train INFO: Epoch[11] Iteration[20/54] Loss: 0.501, Acc: 0.998, Base Lr: 3.10e-04
+2025-12-13 09:53:49,671 Signal.train INFO: Epoch[11] Iteration[30/54] Loss: 0.502, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:52,530 Signal.train INFO: Epoch[11] Iteration[40/54] Loss: 0.506, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:55,479 Signal.train INFO: Epoch[11] Iteration[50/54] Loss: 0.507, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:56,430 Signal.train INFO: Epoch 11 done. Time per batch: 0.304[s] Speed: 210.7[samples/s]
+2025-12-13 09:53:56,432 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:56,432 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:53:56,432 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:54:07,398 Signal.train INFO: Validation Results - Epoch: 11
+2025-12-13 09:54:07,399 Signal.train INFO: mAP: 72.7%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-1  :74.6%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-5  :84.0%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-10 :88.4%
+2025-12-13 09:54:07,399 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:07,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:07,439 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:54:07,439 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:11,211 Signal.train INFO: Epoch[12] Iteration[10/54] Loss: 0.492, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:14,113 Signal.train INFO: Epoch[12] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:16,964 Signal.train INFO: Epoch[12] Iteration[30/54] Loss: 0.508, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:19,837 Signal.train INFO: Epoch[12] Iteration[40/54] Loss: 0.511, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:22,760 Signal.train INFO: Epoch[12] Iteration[50/54] Loss: 0.507, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:23,707 Signal.train INFO: Epoch 12 done. Time per batch: 0.307[s] Speed: 208.5[samples/s]
+2025-12-13 09:54:23,749 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:23,749 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:54:23,749 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:54:34,308 Signal.train INFO: Validation Results - Epoch: 12
+2025-12-13 09:54:34,308 Signal.train INFO: mAP: 74.2%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-10 :89.0%
+2025-12-13 09:54:34,308 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:37,522 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:37,523 Signal.train INFO: Best mAP: 74.2%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-1: 76.7%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-5: 85.0%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-10: 89.0%
+2025-12-13 09:54:37,523 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:41,276 Signal.train INFO: Epoch[13] Iteration[10/54] Loss: 0.510, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:44,195 Signal.train INFO: Epoch[13] Iteration[20/54] Loss: 0.502, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:47,061 Signal.train INFO: Epoch[13] Iteration[30/54] Loss: 0.496, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:49,953 Signal.train INFO: Epoch[13] Iteration[40/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:52,815 Signal.train INFO: Epoch[13] Iteration[50/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:53,763 Signal.train INFO: Epoch 13 done. Time per batch: 0.306[s] Speed: 208.9[samples/s]
+2025-12-13 09:54:53,764 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:53,765 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:54:53,765 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:55:04,590 Signal.train INFO: Validation Results - Epoch: 13
+2025-12-13 09:55:04,590 Signal.train INFO: mAP: 74.4%
+2025-12-13 09:55:04,590 Signal.train INFO: CMC curve, Rank-1  :76.3%
+2025-12-13 09:55:04,591 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 09:55:04,591 Signal.train INFO: CMC curve, Rank-10 :89.2%
+2025-12-13 09:55:04,591 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:07,823 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:07,823 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:55:07,823 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:55:07,823 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:55:07,824 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:55:07,824 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:11,438 Signal.train INFO: Epoch[14] Iteration[10/54] Loss: 0.485, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:14,288 Signal.train INFO: Epoch[14] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:17,261 Signal.train INFO: Epoch[14] Iteration[30/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:20,125 Signal.train INFO: Epoch[14] Iteration[40/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:23,012 Signal.train INFO: Epoch[14] Iteration[50/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:23,945 Signal.train INFO: Epoch 14 done. Time per batch: 0.304[s] Speed: 210.4[samples/s]
+2025-12-13 09:55:23,946 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:23,946 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:55:23,946 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:55:34,775 Signal.train INFO: Validation Results - Epoch: 14
+2025-12-13 09:55:34,776 Signal.train INFO: mAP: 74.0%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-5  :84.2%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-10 :89.5%
+2025-12-13 09:55:34,776 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:34,816 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:34,817 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:55:34,817 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:38,343 Signal.train INFO: Epoch[15] Iteration[10/54] Loss: 0.486, Acc: 0.998, Base Lr: 2.78e-04
+2025-12-13 09:55:41,215 Signal.train INFO: Epoch[15] Iteration[20/54] Loss: 0.486, Acc: 0.999, Base Lr: 2.78e-04
+2025-12-13 09:55:44,107 Signal.train INFO: Epoch[15] Iteration[30/54] Loss: 0.485, Acc: 0.999, Base Lr: 2.78e-04
+2025-12-13 09:55:46,991 Signal.train INFO: Epoch[15] Iteration[40/54] Loss: 0.508, Acc: 1.000, Base Lr: 2.78e-04
+2025-12-13 09:55:49,880 Signal.train INFO: Epoch[15] Iteration[50/54] Loss: 0.505, Acc: 1.000, Base Lr: 2.78e-04
+2025-12-13 09:55:50,820 Signal.train INFO: Epoch 15 done. Time per batch: 0.302[s] Speed: 212.0[samples/s]
+2025-12-13 09:55:50,826 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:50,827 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:55:50,827 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:56:01,690 Signal.train INFO: Validation Results - Epoch: 15
+2025-12-13 09:56:01,690 Signal.train INFO: mAP: 72.5%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-5  :84.0%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-10 :88.9%
+2025-12-13 09:56:01,691 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:01,732 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:01,732 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:01,733 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:05,442 Signal.train INFO: Epoch[16] Iteration[10/54] Loss: 0.490, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:08,342 Signal.train INFO: Epoch[16] Iteration[20/54] Loss: 0.500, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:11,200 Signal.train INFO: Epoch[16] Iteration[30/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:14,075 Signal.train INFO: Epoch[16] Iteration[40/54] Loss: 0.494, Acc: 0.999, Base Lr: 2.69e-04
+2025-12-13 09:56:16,998 Signal.train INFO: Epoch[16] Iteration[50/54] Loss: 0.491, Acc: 0.999, Base Lr: 2.69e-04
+2025-12-13 09:56:17,936 Signal.train INFO: Epoch 16 done. Time per batch: 0.306[s] Speed: 209.3[samples/s]
+2025-12-13 09:56:17,938 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:17,938 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:56:17,938 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:56:28,813 Signal.train INFO: Validation Results - Epoch: 16
+2025-12-13 09:56:28,813 Signal.train INFO: mAP: 72.5%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-1  :76.0%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-5  :83.3%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-10 :89.1%
+2025-12-13 09:56:28,813 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:28,855 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:28,856 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:28,856 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:32,625 Signal.train INFO: Epoch[17] Iteration[10/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:35,502 Signal.train INFO: Epoch[17] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:38,369 Signal.train INFO: Epoch[17] Iteration[30/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:41,317 Signal.train INFO: Epoch[17] Iteration[40/54] Loss: 0.489, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:44,187 Signal.train INFO: Epoch[17] Iteration[50/54] Loss: 0.486, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:45,122 Signal.train INFO: Epoch 17 done. Time per batch: 0.307[s] Speed: 208.5[samples/s]
+2025-12-13 09:56:45,127 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:45,127 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:56:45,127 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:56:56,023 Signal.train INFO: Validation Results - Epoch: 17
+2025-12-13 09:56:56,023 Signal.train INFO: mAP: 73.9%
+2025-12-13 09:56:56,023 Signal.train INFO: CMC curve, Rank-1  :77.3%
+2025-12-13 09:56:56,024 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 09:56:56,024 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 09:56:56,024 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:56,068 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:56,069 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:56,069 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:59,854 Signal.train INFO: Epoch[18] Iteration[10/54] Loss: 0.482, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:02,736 Signal.train INFO: Epoch[18] Iteration[20/54] Loss: 0.501, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:05,612 Signal.train INFO: Epoch[18] Iteration[30/54] Loss: 0.496, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:08,615 Signal.train INFO: Epoch[18] Iteration[40/54] Loss: 0.491, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:11,492 Signal.train INFO: Epoch[18] Iteration[50/54] Loss: 0.490, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:12,436 Signal.train INFO: Epoch 18 done. Time per batch: 0.309[s] Speed: 207.3[samples/s]
+2025-12-13 09:57:12,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:12,438 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:57:12,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:57:23,412 Signal.train INFO: Validation Results - Epoch: 18
+2025-12-13 09:57:23,412 Signal.train INFO: mAP: 73.7%
+2025-12-13 09:57:23,412 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 09:57:23,413 Signal.train INFO: CMC curve, Rank-5  :85.6%
+2025-12-13 09:57:23,413 Signal.train INFO: CMC curve, Rank-10 :90.0%
+2025-12-13 09:57:23,413 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:23,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:23,454 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:57:23,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:27,090 Signal.train INFO: Epoch[19] Iteration[10/54] Loss: 0.476, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:29,978 Signal.train INFO: Epoch[19] Iteration[20/54] Loss: 0.482, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:32,847 Signal.train INFO: Epoch[19] Iteration[30/54] Loss: 0.480, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:35,776 Signal.train INFO: Epoch[19] Iteration[40/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:38,671 Signal.train INFO: Epoch[19] Iteration[50/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:39,602 Signal.train INFO: Epoch 19 done. Time per batch: 0.305[s] Speed: 210.1[samples/s]
+2025-12-13 09:57:39,604 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:39,604 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:57:39,604 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:57:50,635 Signal.train INFO: Validation Results - Epoch: 19
+2025-12-13 09:57:50,636 Signal.train INFO: mAP: 74.9%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-5  :86.0%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 09:57:50,636 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:53,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:53,862 Signal.train INFO: Best mAP: 74.9%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-1: 76.8%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-5: 86.0%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-10: 90.3%
+2025-12-13 09:57:53,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:57,330 Signal.train INFO: Epoch[20] Iteration[10/54] Loss: 0.478, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:00,207 Signal.train INFO: Epoch[20] Iteration[20/54] Loss: 0.477, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:03,134 Signal.train INFO: Epoch[20] Iteration[30/54] Loss: 0.476, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:05,998 Signal.train INFO: Epoch[20] Iteration[40/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:08,834 Signal.train INFO: Epoch[20] Iteration[50/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:09,765 Signal.train INFO: Epoch 20 done. Time per batch: 0.300[s] Speed: 213.3[samples/s]
+2025-12-13 09:58:09,770 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:09,770 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:58:09,770 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:58:20,532 Signal.train INFO: Validation Results - Epoch: 20
+2025-12-13 09:58:20,532 Signal.train INFO: mAP: 75.2%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-1  :77.6%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-5  :85.9%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-10 :90.9%
+2025-12-13 09:58:20,533 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:23,762 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:23,762 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:58:23,762 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:27,577 Signal.train INFO: Epoch[21] Iteration[10/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:30,484 Signal.train INFO: Epoch[21] Iteration[20/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:33,352 Signal.train INFO: Epoch[21] Iteration[30/54] Loss: 0.474, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:36,244 Signal.train INFO: Epoch[21] Iteration[40/54] Loss: 0.474, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:39,157 Signal.train INFO: Epoch[21] Iteration[50/54] Loss: 0.473, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:40,124 Signal.train INFO: Epoch 21 done. Time per batch: 0.309[s] Speed: 207.3[samples/s]
+2025-12-13 09:58:40,128 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:40,128 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:58:40,128 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:58:51,164 Signal.train INFO: Validation Results - Epoch: 21
+2025-12-13 09:58:51,165 Signal.train INFO: mAP: 75.0%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-1  :77.4%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 09:58:51,165 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:51,205 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:51,205 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:58:51,205 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:54,845 Signal.train INFO: Epoch[22] Iteration[10/54] Loss: 0.477, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:58:57,865 Signal.train INFO: Epoch[22] Iteration[20/54] Loss: 0.471, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:00,726 Signal.train INFO: Epoch[22] Iteration[30/54] Loss: 0.470, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:03,592 Signal.train INFO: Epoch[22] Iteration[40/54] Loss: 0.469, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:06,463 Signal.train INFO: Epoch[22] Iteration[50/54] Loss: 0.468, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:07,462 Signal.train INFO: Epoch 22 done. Time per batch: 0.307[s] Speed: 208.7[samples/s]
+2025-12-13 09:59:07,464 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:07,464 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:59:07,465 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:59:18,146 Signal.train INFO: Validation Results - Epoch: 22
+2025-12-13 09:59:18,146 Signal.train INFO: mAP: 74.5%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-10 :90.0%
+2025-12-13 09:59:18,146 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:18,187 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:18,187 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:59:18,187 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:21,749 Signal.train INFO: Epoch[23] Iteration[10/54] Loss: 0.465, Acc: 0.998, Base Lr: 1.97e-04
+2025-12-13 09:59:24,647 Signal.train INFO: Epoch[23] Iteration[20/54] Loss: 0.463, Acc: 0.999, Base Lr: 1.97e-04
+2025-12-13 09:59:27,538 Signal.train INFO: Epoch[23] Iteration[30/54] Loss: 0.464, Acc: 0.999, Base Lr: 1.97e-04
+2025-12-13 09:59:30,403 Signal.train INFO: Epoch[23] Iteration[40/54] Loss: 0.465, Acc: 1.000, Base Lr: 1.97e-04
+2025-12-13 09:59:33,263 Signal.train INFO: Epoch[23] Iteration[50/54] Loss: 0.465, Acc: 1.000, Base Lr: 1.97e-04
+2025-12-13 09:59:34,209 Signal.train INFO: Epoch 23 done. Time per batch: 0.302[s] Speed: 211.7[samples/s]
+2025-12-13 09:59:34,215 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:34,215 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:59:34,215 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 09:59:45,154 Signal.train INFO: Validation Results - Epoch: 23
+2025-12-13 09:59:45,155 Signal.train INFO: mAP: 74.6%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-5  :85.5%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 09:59:45,155 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:45,196 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:45,196 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:59:45,196 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:48,719 Signal.train INFO: Epoch[24] Iteration[10/54] Loss: 0.466, Acc: 1.000, Base Lr: 1.86e-04
+2025-12-13 09:59:51,625 Signal.train INFO: Epoch[24] Iteration[20/54] Loss: 0.466, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 09:59:54,586 Signal.train INFO: Epoch[24] Iteration[30/54] Loss: 0.465, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 09:59:57,461 Signal.train INFO: Epoch[24] Iteration[40/54] Loss: 0.466, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 10:00:00,326 Signal.train INFO: Epoch[24] Iteration[50/54] Loss: 0.465, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 10:00:01,269 Signal.train INFO: Epoch 24 done. Time per batch: 0.303[s] Speed: 211.0[samples/s]
+2025-12-13 10:00:01,271 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:01,271 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:01,271 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:00:12,070 Signal.train INFO: Validation Results - Epoch: 24
+2025-12-13 10:00:12,071 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:00:12,071 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:12,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:12,112 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:00:12,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:15,613 Signal.train INFO: Epoch[25] Iteration[10/54] Loss: 0.467, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:18,479 Signal.train INFO: Epoch[25] Iteration[20/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:21,407 Signal.train INFO: Epoch[25] Iteration[30/54] Loss: 0.463, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:24,255 Signal.train INFO: Epoch[25] Iteration[40/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:27,111 Signal.train INFO: Epoch[25] Iteration[50/54] Loss: 0.466, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:28,100 Signal.train INFO: Epoch 25 done. Time per batch: 0.302[s] Speed: 212.2[samples/s]
+2025-12-13 10:00:28,102 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:28,102 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:28,102 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:00:38,941 Signal.train INFO: Validation Results - Epoch: 25
+2025-12-13 10:00:38,941 Signal.train INFO: mAP: 73.6%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-1  :75.0%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-5  :83.9%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-10 :89.6%
+2025-12-13 10:00:38,942 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:38,981 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:38,982 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:00:38,982 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:42,620 Signal.train INFO: Epoch[26] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:45,498 Signal.train INFO: Epoch[26] Iteration[20/54] Loss: 0.460, Acc: 0.999, Base Lr: 1.64e-04
+2025-12-13 10:00:48,408 Signal.train INFO: Epoch[26] Iteration[30/54] Loss: 0.461, Acc: 0.999, Base Lr: 1.64e-04
+2025-12-13 10:00:51,307 Signal.train INFO: Epoch[26] Iteration[40/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:54,174 Signal.train INFO: Epoch[26] Iteration[50/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:55,110 Signal.train INFO: Epoch 26 done. Time per batch: 0.304[s] Speed: 210.3[samples/s]
+2025-12-13 10:00:55,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:55,112 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:55,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:01:05,818 Signal.train INFO: Validation Results - Epoch: 26
+2025-12-13 10:01:05,818 Signal.train INFO: mAP: 73.3%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-1  :74.9%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-5  :83.1%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-10 :88.8%
+2025-12-13 10:01:05,819 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:05,859 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:05,859 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:05,860 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:09,329 Signal.train INFO: Epoch[27] Iteration[10/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:12,190 Signal.train INFO: Epoch[27] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:15,133 Signal.train INFO: Epoch[27] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:18,001 Signal.train INFO: Epoch[27] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:20,860 Signal.train INFO: Epoch[27] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:21,802 Signal.train INFO: Epoch 27 done. Time per batch: 0.301[s] Speed: 212.8[samples/s]
+2025-12-13 10:01:21,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:21,804 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:01:21,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:01:32,797 Signal.train INFO: Validation Results - Epoch: 27
+2025-12-13 10:01:32,797 Signal.train INFO: mAP: 73.5%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-1  :75.1%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-5  :84.1%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-10 :89.0%
+2025-12-13 10:01:32,798 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:32,838 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:32,838 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:32,838 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:32,838 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:32,839 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:32,839 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:36,493 Signal.train INFO: Epoch[28] Iteration[10/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:39,373 Signal.train INFO: Epoch[28] Iteration[20/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:42,318 Signal.train INFO: Epoch[28] Iteration[30/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:45,189 Signal.train INFO: Epoch[28] Iteration[40/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:48,063 Signal.train INFO: Epoch[28] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:49,004 Signal.train INFO: Epoch 28 done. Time per batch: 0.305[s] Speed: 209.8[samples/s]
+2025-12-13 10:01:49,006 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:49,007 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:01:49,007 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:01:59,705 Signal.train INFO: Validation Results - Epoch: 28
+2025-12-13 10:01:59,705 Signal.train INFO: mAP: 73.6%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-1  :75.2%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-5  :84.6%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-10 :89.7%
+2025-12-13 10:01:59,705 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:59,745 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:59,745 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:59,745 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:03,289 Signal.train INFO: Epoch[29] Iteration[10/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:06,179 Signal.train INFO: Epoch[29] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:09,098 Signal.train INFO: Epoch[29] Iteration[30/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:11,977 Signal.train INFO: Epoch[29] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:14,846 Signal.train INFO: Epoch[29] Iteration[50/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:15,799 Signal.train INFO: Epoch 29 done. Time per batch: 0.303[s] Speed: 211.3[samples/s]
+2025-12-13 10:02:15,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:15,805 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:02:15,805 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:02:26,724 Signal.train INFO: Validation Results - Epoch: 29
+2025-12-13 10:02:26,724 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:02:26,724 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:02:26,725 Signal.train INFO: CMC curve, Rank-5  :85.3%
+2025-12-13 10:02:26,725 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:02:26,725 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:26,799 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:26,799 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:02:26,799 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:02:26,799 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:02:26,800 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:02:26,800 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:30,341 Signal.train INFO: Epoch[30] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:33,243 Signal.train INFO: Epoch[30] Iteration[20/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:36,135 Signal.train INFO: Epoch[30] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:39,049 Signal.train INFO: Epoch[30] Iteration[40/54] Loss: 0.459, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:41,909 Signal.train INFO: Epoch[30] Iteration[50/54] Loss: 0.459, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:42,867 Signal.train INFO: Epoch 30 done. Time per batch: 0.303[s] Speed: 211.1[samples/s]
+2025-12-13 10:02:42,869 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:42,869 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:02:42,869 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:02:53,639 Signal.train INFO: Validation Results - Epoch: 30
+2025-12-13 10:02:53,639 Signal.train INFO: mAP: 73.7%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:02:53,640 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:53,679 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:53,680 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:02:53,680 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:57,202 Signal.train INFO: Epoch[31] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:00,079 Signal.train INFO: Epoch[31] Iteration[20/54] Loss: 0.458, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:03,024 Signal.train INFO: Epoch[31] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:05,946 Signal.train INFO: Epoch[31] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:08,831 Signal.train INFO: Epoch[31] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:09,765 Signal.train INFO: Epoch 31 done. Time per batch: 0.303[s] Speed: 210.9[samples/s]
+2025-12-13 10:03:09,767 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:09,767 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:03:09,768 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:03:20,580 Signal.train INFO: Validation Results - Epoch: 31
+2025-12-13 10:03:20,580 Signal.train INFO: mAP: 73.9%
+2025-12-13 10:03:20,580 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:03:20,580 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:03:20,581 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:03:20,581 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:20,620 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:20,621 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:03:20,621 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:24,135 Signal.train INFO: Epoch[32] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:27,024 Signal.train INFO: Epoch[32] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:29,952 Signal.train INFO: Epoch[32] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:32,799 Signal.train INFO: Epoch[32] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:35,729 Signal.train INFO: Epoch[32] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:36,679 Signal.train INFO: Epoch 32 done. Time per batch: 0.303[s] Speed: 211.2[samples/s]
+2025-12-13 10:03:36,681 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:36,681 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:03:36,681 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:03:47,558 Signal.train INFO: Validation Results - Epoch: 32
+2025-12-13 10:03:47,559 Signal.train INFO: mAP: 74.0%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-10 :90.6%
+2025-12-13 10:03:47,559 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:47,644 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:47,644 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:03:47,644 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:51,581 Signal.train INFO: Epoch[33] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:03:54,471 Signal.train INFO: Epoch[33] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:03:57,354 Signal.train INFO: Epoch[33] Iteration[30/54] Loss: 0.458, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:00,227 Signal.train INFO: Epoch[33] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:03,118 Signal.train INFO: Epoch[33] Iteration[50/54] Loss: 0.459, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:04,083 Signal.train INFO: Epoch 33 done. Time per batch: 0.310[s] Speed: 206.4[samples/s]
+2025-12-13 10:04:04,088 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:04,089 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:04,089 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:04:14,863 Signal.train INFO: Validation Results - Epoch: 33
+2025-12-13 10:04:14,864 Signal.train INFO: mAP: 73.9%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-1  :75.5%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:04:14,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:14,912 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:14,912 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:04:14,913 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:18,596 Signal.train INFO: Epoch[34] Iteration[10/54] Loss: 0.459, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:21,472 Signal.train INFO: Epoch[34] Iteration[20/54] Loss: 0.457, Acc: 0.999, Base Lr: 8.15e-05
+2025-12-13 10:04:24,352 Signal.train INFO: Epoch[34] Iteration[30/54] Loss: 0.456, Acc: 0.999, Base Lr: 8.15e-05
+2025-12-13 10:04:27,307 Signal.train INFO: Epoch[34] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:30,191 Signal.train INFO: Epoch[34] Iteration[50/54] Loss: 0.457, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:31,131 Signal.train INFO: Epoch 34 done. Time per batch: 0.306[s] Speed: 209.2[samples/s]
+2025-12-13 10:04:31,133 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:31,133 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:31,133 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:04:41,980 Signal.train INFO: Validation Results - Epoch: 34
+2025-12-13 10:04:41,980 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:04:41,980 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:42,020 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:42,020 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:04:42,020 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:04:42,020 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:04:42,021 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:04:42,021 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:46,276 Signal.train INFO: Epoch[35] Iteration[10/54] Loss: 0.456, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:49,160 Signal.train INFO: Epoch[35] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:52,040 Signal.train INFO: Epoch[35] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:54,961 Signal.train INFO: Epoch[35] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:57,831 Signal.train INFO: Epoch[35] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:58,801 Signal.train INFO: Epoch 35 done. Time per batch: 0.317[s] Speed: 202.1[samples/s]
+2025-12-13 10:04:58,803 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:58,803 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:58,803 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:05:09,820 Signal.train INFO: Validation Results - Epoch: 35
+2025-12-13 10:05:09,821 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-5  :84.6%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:05:09,821 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:09,861 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:09,861 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:05:09,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:13,778 Signal.train INFO: Epoch[36] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:16,658 Signal.train INFO: Epoch[36] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:19,523 Signal.train INFO: Epoch[36] Iteration[30/54] Loss: 0.459, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:22,434 Signal.train INFO: Epoch[36] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:25,303 Signal.train INFO: Epoch[36] Iteration[50/54] Loss: 0.457, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:26,243 Signal.train INFO: Epoch 36 done. Time per batch: 0.309[s] Speed: 207.1[samples/s]
+2025-12-13 10:05:26,245 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:26,245 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:05:26,245 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:05:37,079 Signal.train INFO: Validation Results - Epoch: 36
+2025-12-13 10:05:37,080 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-10 :89.2%
+2025-12-13 10:05:37,080 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:37,120 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:37,120 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:05:37,121 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:40,838 Signal.train INFO: Epoch[37] Iteration[10/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:43,711 Signal.train INFO: Epoch[37] Iteration[20/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:46,589 Signal.train INFO: Epoch[37] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:49,461 Signal.train INFO: Epoch[37] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:52,353 Signal.train INFO: Epoch[37] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:53,312 Signal.train INFO: Epoch 37 done. Time per batch: 0.305[s] Speed: 209.5[samples/s]
+2025-12-13 10:05:53,315 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:53,315 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:05:53,315 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:06:04,235 Signal.train INFO: Validation Results - Epoch: 37
+2025-12-13 10:06:04,236 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-5  :84.8%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-10 :89.8%
+2025-12-13 10:06:04,236 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:04,275 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:04,275 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:04,276 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:07,842 Signal.train INFO: Epoch[38] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:10,735 Signal.train INFO: Epoch[38] Iteration[20/54] Loss: 0.458, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:13,617 Signal.train INFO: Epoch[38] Iteration[30/54] Loss: 0.459, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:16,502 Signal.train INFO: Epoch[38] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:19,381 Signal.train INFO: Epoch[38] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:20,320 Signal.train INFO: Epoch 38 done. Time per batch: 0.303[s] Speed: 211.4[samples/s]
+2025-12-13 10:06:20,329 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:20,329 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:06:20,330 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:06:31,232 Signal.train INFO: Validation Results - Epoch: 38
+2025-12-13 10:06:31,232 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:31,232 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:06:31,232 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:06:31,233 Signal.train INFO: CMC curve, Rank-10 :89.7%
+2025-12-13 10:06:31,233 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:31,273 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:31,273 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:31,273 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:34,831 Signal.train INFO: Epoch[39] Iteration[10/54] Loss: 0.451, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:37,716 Signal.train INFO: Epoch[39] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:40,612 Signal.train INFO: Epoch[39] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:43,495 Signal.train INFO: Epoch[39] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:46,389 Signal.train INFO: Epoch[39] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:47,329 Signal.train INFO: Epoch 39 done. Time per batch: 0.303[s] Speed: 211.3[samples/s]
+2025-12-13 10:06:47,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:47,331 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:06:47,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:06:58,155 Signal.train INFO: Validation Results - Epoch: 39
+2025-12-13 10:06:58,155 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-5  :84.9%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:06:58,155 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:58,235 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:58,235 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:58,236 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:01,816 Signal.train INFO: Epoch[40] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:04,731 Signal.train INFO: Epoch[40] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:07,623 Signal.train INFO: Epoch[40] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:10,523 Signal.train INFO: Epoch[40] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:13,406 Signal.train INFO: Epoch[40] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:14,373 Signal.train INFO: Epoch 40 done. Time per batch: 0.304[s] Speed: 210.2[samples/s]
+2025-12-13 10:07:14,378 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:14,378 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:07:14,378 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:07:25,212 Signal.train INFO: Validation Results - Epoch: 40
+2025-12-13 10:07:25,212 Signal.train INFO: mAP: 74.1%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:07:25,212 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:25,261 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:25,261 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:07:25,262 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:28,990 Signal.train INFO: Epoch[41] Iteration[10/54] Loss: 0.455, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:31,951 Signal.train INFO: Epoch[41] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:34,833 Signal.train INFO: Epoch[41] Iteration[30/54] Loss: 0.456, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:37,733 Signal.train INFO: Epoch[41] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:40,596 Signal.train INFO: Epoch[41] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:41,563 Signal.train INFO: Epoch 41 done. Time per batch: 0.308[s] Speed: 208.1[samples/s]
+2025-12-13 10:07:41,566 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:41,566 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:07:41,566 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:07:52,294 Signal.train INFO: Validation Results - Epoch: 41
+2025-12-13 10:07:52,294 Signal.train INFO: mAP: 74.1%
+2025-12-13 10:07:52,294 Signal.train INFO: CMC curve, Rank-1  :76.6%
+2025-12-13 10:07:52,295 Signal.train INFO: CMC curve, Rank-5  :84.8%
+2025-12-13 10:07:52,295 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:07:52,295 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:52,335 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:52,335 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:07:52,335 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:07:52,336 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:07:52,336 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:07:52,336 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:55,952 Signal.train INFO: Epoch[42] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:07:58,844 Signal.train INFO: Epoch[42] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:01,703 Signal.train INFO: Epoch[42] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:04,599 Signal.train INFO: Epoch[42] Iteration[40/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:07,464 Signal.train INFO: Epoch[42] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:08,404 Signal.train INFO: Epoch 42 done. Time per batch: 0.303[s] Speed: 211.1[samples/s]
+2025-12-13 10:08:08,409 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:08,409 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:08:08,409 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:08:19,068 Signal.train INFO: Validation Results - Epoch: 42
+2025-12-13 10:08:19,069 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-1  :76.3%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-5  :84.3%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:08:19,069 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:19,157 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:19,157 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:08:19,158 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:22,813 Signal.train INFO: Epoch[43] Iteration[10/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:25,676 Signal.train INFO: Epoch[43] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:28,557 Signal.train INFO: Epoch[43] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:31,421 Signal.train INFO: Epoch[43] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:34,288 Signal.train INFO: Epoch[43] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:35,218 Signal.train INFO: Epoch 43 done. Time per batch: 0.303[s] Speed: 211.2[samples/s]
+2025-12-13 10:08:35,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:35,220 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:08:35,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:08:46,129 Signal.train INFO: Validation Results - Epoch: 43
+2025-12-13 10:08:46,129 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-10 :90.1%
+2025-12-13 10:08:46,130 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:46,170 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:46,170 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:08:46,170 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:49,812 Signal.train INFO: Epoch[44] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:52,675 Signal.train INFO: Epoch[44] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:55,532 Signal.train INFO: Epoch[44] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:58,372 Signal.train INFO: Epoch[44] Iteration[40/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:09:01,203 Signal.train INFO: Epoch[44] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:09:02,134 Signal.train INFO: Epoch 44 done. Time per batch: 0.301[s] Speed: 212.5[samples/s]
+2025-12-13 10:09:02,136 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:02,136 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:02,137 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:09:12,803 Signal.train INFO: Validation Results - Epoch: 44
+2025-12-13 10:09:12,804 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:09:12,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:12,844 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:12,844 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:09:12,844 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:16,553 Signal.train INFO: Epoch[45] Iteration[10/54] Loss: 0.455, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:19,418 Signal.train INFO: Epoch[45] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:22,264 Signal.train INFO: Epoch[45] Iteration[30/54] Loss: 0.452, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:25,105 Signal.train INFO: Epoch[45] Iteration[40/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:27,932 Signal.train INFO: Epoch[45] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:28,862 Signal.train INFO: Epoch 45 done. Time per batch: 0.302[s] Speed: 211.8[samples/s]
+2025-12-13 10:09:28,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:28,864 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:28,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:09:39,578 Signal.train INFO: Validation Results - Epoch: 45
+2025-12-13 10:09:39,578 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:09:39,578 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 10:09:39,579 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:09:39,579 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:09:39,579 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:39,629 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:39,629 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:09:39,629 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:43,142 Signal.train INFO: Epoch[46] Iteration[10/54] Loss: 0.458, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:45,999 Signal.train INFO: Epoch[46] Iteration[20/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:48,850 Signal.train INFO: Epoch[46] Iteration[30/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:51,702 Signal.train INFO: Epoch[46] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:54,523 Signal.train INFO: Epoch[46] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:55,452 Signal.train INFO: Epoch 46 done. Time per batch: 0.299[s] Speed: 214.4[samples/s]
+2025-12-13 10:09:55,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:55,454 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:55,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:10:06,094 Signal.train INFO: Validation Results - Epoch: 46
+2025-12-13 10:10:06,095 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-5  :85.5%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:10:06,095 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:06,135 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:06,135 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:06,136 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:09,778 Signal.train INFO: Epoch[47] Iteration[10/54] Loss: 0.449, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:12,630 Signal.train INFO: Epoch[47] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:15,472 Signal.train INFO: Epoch[47] Iteration[30/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:18,311 Signal.train INFO: Epoch[47] Iteration[40/54] Loss: 0.452, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:21,140 Signal.train INFO: Epoch[47] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:22,077 Signal.train INFO: Epoch 47 done. Time per batch: 0.301[s] Speed: 212.8[samples/s]
+2025-12-13 10:10:22,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:22,079 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:10:22,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:10:32,758 Signal.train INFO: Validation Results - Epoch: 47
+2025-12-13 10:10:32,758 Signal.train INFO: mAP: 74.5%
+2025-12-13 10:10:32,758 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:10:32,758 Signal.train INFO: CMC curve, Rank-5  :85.6%
+2025-12-13 10:10:32,759 Signal.train INFO: CMC curve, Rank-10 :90.7%
+2025-12-13 10:10:32,759 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:32,799 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:32,799 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:32,800 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:36,309 Signal.train INFO: Epoch[48] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:39,194 Signal.train INFO: Epoch[48] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:42,067 Signal.train INFO: Epoch[48] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:44,919 Signal.train INFO: Epoch[48] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:47,755 Signal.train INFO: Epoch[48] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:48,399 Signal.train INFO: Epoch 48 done. Time per batch: 0.300[s] Speed: 213.3[samples/s]
+2025-12-13 10:10:48,401 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:48,402 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:10:48,402 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:10:59,007 Signal.train INFO: Validation Results - Epoch: 48
+2025-12-13 10:10:59,007 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:10:59,007 Signal.train INFO: CMC curve, Rank-1  :77.0%
+2025-12-13 10:10:59,007 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:10:59,008 Signal.train INFO: CMC curve, Rank-10 :90.6%
+2025-12-13 10:10:59,008 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:59,056 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:59,057 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:59,057 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:02,527 Signal.train INFO: Epoch[49] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:05,401 Signal.train INFO: Epoch[49] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:08,240 Signal.train INFO: Epoch[49] Iteration[30/54] Loss: 0.453, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:11,077 Signal.train INFO: Epoch[49] Iteration[40/54] Loss: 0.452, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:13,926 Signal.train INFO: Epoch[49] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:14,844 Signal.train INFO: Epoch 49 done. Time per batch: 0.298[s] Speed: 214.9[samples/s]
+2025-12-13 10:11:14,846 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:14,846 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:11:14,846 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:11:25,396 Signal.train INFO: Validation Results - Epoch: 49
+2025-12-13 10:11:25,397 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:11:25,397 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:25,437 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:25,437 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:11:25,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:29,015 Signal.train INFO: Epoch[50] Iteration[10/54] Loss: 0.451, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:31,897 Signal.train INFO: Epoch[50] Iteration[20/54] Loss: 0.452, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:34,740 Signal.train INFO: Epoch[50] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:37,573 Signal.train INFO: Epoch[50] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:40,406 Signal.train INFO: Epoch[50] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:41,347 Signal.train INFO: Epoch 50 done. Time per batch: 0.300[s] Speed: 213.2[samples/s]
+2025-12-13 10:11:44,445 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:44,445 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:11:44,445 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The test feature is normalized
+=> Computing DistMat with euclidean_distance
+2025-12-13 10:11:55,266 Signal.train INFO: Validation Results - Epoch: 50
+2025-12-13 10:11:55,266 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:11:55,267 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:55,306 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:55,307 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:11:55,307 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
