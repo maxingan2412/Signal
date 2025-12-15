@@ -1,0 +1,1381 @@
+2025-12-13 09:48:40,838 Signal INFO: Local GPU model: NVIDIA A100-SXM4-80GB, Torch version: 2.1.1+cu118,cuda:11.8
+2025-12-13 09:48:40,839 Signal INFO: Saving model in the path :logs/Signal_ablation_xiaorong_20251213_094834/sign2_SIM/RGBNT201_all
+2025-12-13 09:48:40,839 Signal INFO: Namespace(config_file='configs/RGBNT201/Signal.yml', fea_cft=0, opts=['MODEL.USE_A', 'True', 'MODEL.USE_B', 'False', 'OUTPUT_DIR', 'logs/Signal_ablation_xiaorong_20251213_094834/sign2_SIM'], local_rank=0)
+2025-12-13 09:48:40,839 Signal INFO: Loaded configuration file configs/RGBNT201/Signal.yml
+2025-12-13 09:48:40,840 Signal INFO: 
+MODEL:
+  TRANSFORMER_TYPE: 'ViT-B-16'
+  STRIDE_SIZE: [ 16, 16 ]
+  SIE_CAMERA: True
+  DIRECT: 1
+  SIE_COE: 1.0
+  ID_LOSS_WEIGHT: 0.25
+  TRIPLET_LOSS_WEIGHT: 1.0
+  Gram_Loss_weight: 0.2
+  PAT_Loss_weight: 0.2
+  USE_A: True
+  TOPK: 80
+  USE_B: True
+  stageName: 'together_CLS_Patch'     # [CLS,  together_CLS_Patch]
+  
+  
+
+INPUT:
+  SIZE_TRAIN: [ 256, 128 ]
+  SIZE_TEST: [ 256, 128 ]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  PADDING: 10
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'
+  NUM_INSTANCE: 8
+  NUM_WORKERS: 12
+
+DATASETS:
+  NAMES: ('RGBNT201')
+  ROOT_DIR: '..'
+
+SOLVER:
+  BASE_LR: 0.00035
+  WARMUP_ITERS: 10
+  MAX_EPOCHS: 50
+  OPTIMIZER_NAME: 'Adam'
+  IMS_PER_BATCH: 64
+  EVAL_PERIOD: 1
+
+TEST:
+  IMS_PER_BATCH: 128
+  RE_RANKING: 'no'
+  WEIGHT: ''
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+  MISS: "nothing"
+
+OUTPUT_DIR: '.'
+ckpt_save_path: 'RGBNT201_all'
+ckpt_test_path:  'test_RNT201'
+
+2025-12-13 09:48:40,840 Signal INFO: Running with config:
+DATALOADER:
+  NUM_INSTANCE: 8
+  NUM_WORKERS: 12
+  SAMPLER: softmax_triplet
+DATASETS:
+  NAMES: RGBNT201
+  ROOT_DIR: ..
+INPUT:
+  PADDING: 10
+  PIXEL_MEAN: [0.5, 0.5, 0.5]
+  PIXEL_STD: [0.5, 0.5, 0.5]
+  PROB: 0.5
+  RE_PROB: 0.5
+  SIZE_TEST: [256, 128]
+  SIZE_TRAIN: [256, 128]
+MODEL:
+  ADAPTER: False
+  ATT_DROP_RATE: 0.0
+  DEVICE: cuda
+  DEVICE_ID: 0
+  DIRECT: 1
+  DIST_TRAIN: False
+  DROP_OUT: 0.0
+  DROP_PATH: 0.1
+  FROZEN: False
+  Gram_Loss_weight: 0.2
+  ID_LOSS_TYPE: softmax
+  ID_LOSS_WEIGHT: 0.25
+  IF_LABELSMOOTH: on
+  IF_WITH_CENTER: no
+  METRIC_LOSS_TYPE: triplet
+  MoE_Loss_weight: 0.1
+  NAME: Signal
+  NECK: bnneck
+  NO_MARGIN: True
+  PAT_Loss_weight: 0.2
+  PRETRAIN_PATH_T: /path/to/your/vitb_16_224_21k.pth
+  PROMPT: False
+  SIE_CAMERA: True
+  SIE_COE: 1.0
+  SIE_VIEW: False
+  STRIDE_SIZE: [16, 16]
+  TOPK: 80
+  TRANSFORMER_TYPE: ViT-B-16
+  TRIPLET_LOSS_WEIGHT: 1.0
+  USE_A: True
+  USE_B: False
+  stageName: together_CLS_Patch
+OUTPUT_DIR: logs/Signal_ablation_xiaorong_20251213_094834/sign2_SIM
+SOLVER:
+  BASE_LR: 0.00035
+  BIAS_LR_FACTOR: 2
+  CENTER_LOSS_WEIGHT: 0.0005
+  CENTER_LR: 0.5
+  CHECKPOINT_PERIOD: 50
+  CLUSTER_MARGIN: 0.3
+  COSINE_MARGIN: 0.5
+  COSINE_SCALE: 30
+  EVAL_PERIOD: 1
+  GAMMA: 0.1
+  IMS_PER_BATCH: 64
+  LARGE_FC_LR: False
+  LOG_PERIOD: 10
+  MARGIN: 0.3
+  MAX_EPOCHS: 50
+  MOMENTUM: 0.9
+  OPTIMIZER_NAME: Adam
+  RANGE_ALPHA: 0
+  RANGE_BETA: 1
+  RANGE_K: 2
+  RANGE_LOSS_WEIGHT: 1
+  RANGE_MARGIN: 0.3
+  SEED: 1234
+  STEPS: (40, 70)
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 10
+  WARMUP_METHOD: linear
+  WEIGHT_DECAY: 0.0001
+  WEIGHT_DECAY_BIAS: 0.0001
+TEST:
+  EVAL: False
+  FEAT: 0
+  FEAT_NORM: yes
+  IMS_PER_BATCH: 128
+  MISS: nothing
+  NECK_FEAT: before
+  RE_RANKING: no
+  WEIGHT: 
+ckpt_save_path: RGBNT201_all
+ckpt_test_path: test_RNT201
+2025-12-13 09:48:47,149 Signal INFO: Signal(
+  (clip_vision_encoder): build_transformer(
+    (base): VisionTransformer(
+      (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
+      (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (transformer): Transformer(
+        (resblocks): Sequential(
+          (0): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (6): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (7): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (8): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (9): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (10): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (11): ResidualAttentionBlock(
+            (attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+            )
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): Sequential(
+              (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+              (gelu): QuickGELU()
+              (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+      (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (bottleneck): BatchNorm1d(1536, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (classifier): Linear(in_features=1536, out_features=171, bias=False)
+  (SIM): Select_Interactive_Module(
+    (token_selection): TokenSelection(
+      (W_q): Linear(in_features=512, out_features=512, bias=True)
+      (W_k): Linear(in_features=512, out_features=512, bias=True)
+      (W_v): Linear(in_features=512, out_features=512, bias=True)
+    )
+    (modal_interactive): ModalInteractive(
+      (cross_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+      )
+      (ffn): Sequential(
+        (0): Linear(in_features=512, out_features=1024, bias=True)
+        (1): GELU(approximate='none')
+        (2): Linear(in_features=1024, out_features=512, bias=True)
+      )
+      (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (classifier_var): Linear(in_features=1536, out_features=171, bias=False)
+  (bottleneck_var): BatchNorm1d(1536, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+2025-12-13 09:48:47,172 Signal INFO: number of parameters:89.562624
+2025-12-13 09:48:47,196 Signal.train INFO: start training
+2025-12-13 09:48:51,928 Signal.train INFO: Epoch[1] Iteration[10/54] Loss: 9.766, Acc: 0.003, Base Lr: 6.65e-05
+2025-12-13 09:48:54,765 Signal.train INFO: Epoch[1] Iteration[20/54] Loss: 7.099, Acc: 0.009, Base Lr: 6.65e-05
+2025-12-13 09:48:57,633 Signal.train INFO: Epoch[1] Iteration[30/54] Loss: 6.090, Acc: 0.011, Base Lr: 6.65e-05
+2025-12-13 09:49:00,469 Signal.train INFO: Epoch[1] Iteration[40/54] Loss: 5.520, Acc: 0.026, Base Lr: 6.65e-05
+2025-12-13 09:49:03,379 Signal.train INFO: Epoch[1] Iteration[50/54] Loss: 5.175, Acc: 0.037, Base Lr: 6.65e-05
+2025-12-13 09:49:04,323 Signal.train INFO: Epoch 1 done. Time per batch: 0.323[s] Speed: 198.1[samples/s]
+2025-12-13 09:49:04,324 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:04,325 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:49:04,325 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:14,808 Signal.train INFO: Validation Results - Epoch: 1
+2025-12-13 09:49:14,808 Signal.train INFO: mAP: 21.7%
+2025-12-13 09:49:14,808 Signal.train INFO: CMC curve, Rank-1  :17.0%
+2025-12-13 09:49:14,808 Signal.train INFO: CMC curve, Rank-5  :40.4%
+2025-12-13 09:49:14,808 Signal.train INFO: CMC curve, Rank-10 :50.4%
+2025-12-13 09:49:14,808 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:19,988 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:19,988 Signal.train INFO: Best mAP: 21.7%
+2025-12-13 09:49:19,988 Signal.train INFO: Best Rank-1: 17.0%
+2025-12-13 09:49:19,988 Signal.train INFO: Best Rank-5: 40.4%
+2025-12-13 09:49:19,988 Signal.train INFO: Best Rank-10: 50.4%
+2025-12-13 09:49:19,989 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:23,528 Signal.train INFO: Epoch[2] Iteration[10/54] Loss: 3.495, Acc: 0.381, Base Lr: 9.80e-05
+2025-12-13 09:49:26,433 Signal.train INFO: Epoch[2] Iteration[20/54] Loss: 3.350, Acc: 0.351, Base Lr: 9.80e-05
+2025-12-13 09:49:29,309 Signal.train INFO: Epoch[2] Iteration[30/54] Loss: 3.263, Acc: 0.341, Base Lr: 9.80e-05
+2025-12-13 09:49:32,154 Signal.train INFO: Epoch[2] Iteration[40/54] Loss: 3.194, Acc: 0.340, Base Lr: 9.80e-05
+2025-12-13 09:49:34,990 Signal.train INFO: Epoch[2] Iteration[50/54] Loss: 3.117, Acc: 0.332, Base Lr: 9.80e-05
+2025-12-13 09:49:35,933 Signal.train INFO: Epoch 2 done. Time per batch: 0.301[s] Speed: 212.7[samples/s]
+2025-12-13 09:49:35,935 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:35,935 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:49:35,935 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:46,691 Signal.train INFO: Validation Results - Epoch: 2
+2025-12-13 09:49:46,692 Signal.train INFO: mAP: 53.0%
+2025-12-13 09:49:46,692 Signal.train INFO: CMC curve, Rank-1  :55.7%
+2025-12-13 09:49:46,692 Signal.train INFO: CMC curve, Rank-5  :65.0%
+2025-12-13 09:49:46,692 Signal.train INFO: CMC curve, Rank-10 :70.0%
+2025-12-13 09:49:46,692 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:49,907 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:49,907 Signal.train INFO: Best mAP: 53.0%
+2025-12-13 09:49:49,907 Signal.train INFO: Best Rank-1: 55.7%
+2025-12-13 09:49:49,907 Signal.train INFO: Best Rank-5: 65.0%
+2025-12-13 09:49:49,907 Signal.train INFO: Best Rank-10: 70.0%
+2025-12-13 09:49:49,907 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:49:53,432 Signal.train INFO: Epoch[3] Iteration[10/54] Loss: 2.687, Acc: 0.625, Base Lr: 1.30e-04
+2025-12-13 09:49:56,401 Signal.train INFO: Epoch[3] Iteration[20/54] Loss: 2.623, Acc: 0.613, Base Lr: 1.30e-04
+2025-12-13 09:49:59,324 Signal.train INFO: Epoch[3] Iteration[30/54] Loss: 2.603, Acc: 0.608, Base Lr: 1.30e-04
+2025-12-13 09:50:02,187 Signal.train INFO: Epoch[3] Iteration[40/54] Loss: 2.529, Acc: 0.576, Base Lr: 1.30e-04
+2025-12-13 09:50:05,055 Signal.train INFO: Epoch[3] Iteration[50/54] Loss: 2.476, Acc: 0.578, Base Lr: 1.30e-04
+2025-12-13 09:50:05,983 Signal.train INFO: Epoch 3 done. Time per batch: 0.303[s] Speed: 211.0[samples/s]
+2025-12-13 09:50:06,022 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:06,022 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:50:06,022 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:16,732 Signal.train INFO: Validation Results - Epoch: 3
+2025-12-13 09:50:16,732 Signal.train INFO: mAP: 65.0%
+2025-12-13 09:50:16,732 Signal.train INFO: CMC curve, Rank-1  :67.1%
+2025-12-13 09:50:16,732 Signal.train INFO: CMC curve, Rank-5  :79.2%
+2025-12-13 09:50:16,732 Signal.train INFO: CMC curve, Rank-10 :84.0%
+2025-12-13 09:50:16,732 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:19,969 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:19,969 Signal.train INFO: Best mAP: 65.0%
+2025-12-13 09:50:19,969 Signal.train INFO: Best Rank-1: 67.1%
+2025-12-13 09:50:19,969 Signal.train INFO: Best Rank-5: 79.2%
+2025-12-13 09:50:19,969 Signal.train INFO: Best Rank-10: 84.0%
+2025-12-13 09:50:19,969 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:23,468 Signal.train INFO: Epoch[4] Iteration[10/54] Loss: 1.941, Acc: 0.822, Base Lr: 1.61e-04
+2025-12-13 09:50:26,310 Signal.train INFO: Epoch[4] Iteration[20/54] Loss: 1.834, Acc: 0.820, Base Lr: 1.61e-04
+2025-12-13 09:50:29,193 Signal.train INFO: Epoch[4] Iteration[30/54] Loss: 1.836, Acc: 0.775, Base Lr: 1.61e-04
+2025-12-13 09:50:32,063 Signal.train INFO: Epoch[4] Iteration[40/54] Loss: 1.791, Acc: 0.782, Base Lr: 1.61e-04
+2025-12-13 09:50:34,951 Signal.train INFO: Epoch[4] Iteration[50/54] Loss: 1.759, Acc: 0.788, Base Lr: 1.61e-04
+2025-12-13 09:50:35,895 Signal.train INFO: Epoch 4 done. Time per batch: 0.300[s] Speed: 213.0[samples/s]
+2025-12-13 09:50:35,897 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:35,897 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:50:35,897 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:46,622 Signal.train INFO: Validation Results - Epoch: 4
+2025-12-13 09:50:46,623 Signal.train INFO: mAP: 69.5%
+2025-12-13 09:50:46,623 Signal.train INFO: CMC curve, Rank-1  :73.4%
+2025-12-13 09:50:46,623 Signal.train INFO: CMC curve, Rank-5  :83.4%
+2025-12-13 09:50:46,623 Signal.train INFO: CMC curve, Rank-10 :88.6%
+2025-12-13 09:50:46,623 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:49,854 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:49,854 Signal.train INFO: Best mAP: 69.5%
+2025-12-13 09:50:49,854 Signal.train INFO: Best Rank-1: 73.4%
+2025-12-13 09:50:49,854 Signal.train INFO: Best Rank-5: 83.4%
+2025-12-13 09:50:49,854 Signal.train INFO: Best Rank-10: 88.6%
+2025-12-13 09:50:49,854 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:50:53,483 Signal.train INFO: Epoch[5] Iteration[10/54] Loss: 1.290, Acc: 0.867, Base Lr: 1.93e-04
+2025-12-13 09:50:56,374 Signal.train INFO: Epoch[5] Iteration[20/54] Loss: 1.260, Acc: 0.845, Base Lr: 1.93e-04
+2025-12-13 09:50:59,227 Signal.train INFO: Epoch[5] Iteration[30/54] Loss: 1.256, Acc: 0.794, Base Lr: 1.93e-04
+2025-12-13 09:51:02,095 Signal.train INFO: Epoch[5] Iteration[40/54] Loss: 1.222, Acc: 0.806, Base Lr: 1.93e-04
+2025-12-13 09:51:04,948 Signal.train INFO: Epoch[5] Iteration[50/54] Loss: 1.208, Acc: 0.802, Base Lr: 1.93e-04
+2025-12-13 09:51:05,876 Signal.train INFO: Epoch 5 done. Time per batch: 0.302[s] Speed: 211.7[samples/s]
+2025-12-13 09:51:05,877 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:05,877 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:51:05,878 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:16,530 Signal.train INFO: Validation Results - Epoch: 5
+2025-12-13 09:51:16,530 Signal.train INFO: mAP: 69.7%
+2025-12-13 09:51:16,530 Signal.train INFO: CMC curve, Rank-1  :75.4%
+2025-12-13 09:51:16,530 Signal.train INFO: CMC curve, Rank-5  :84.6%
+2025-12-13 09:51:16,531 Signal.train INFO: CMC curve, Rank-10 :88.8%
+2025-12-13 09:51:16,531 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:19,761 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:19,761 Signal.train INFO: Best mAP: 69.7%
+2025-12-13 09:51:19,761 Signal.train INFO: Best Rank-1: 75.4%
+2025-12-13 09:51:19,762 Signal.train INFO: Best Rank-5: 84.6%
+2025-12-13 09:51:19,762 Signal.train INFO: Best Rank-10: 88.8%
+2025-12-13 09:51:19,762 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:23,243 Signal.train INFO: Epoch[6] Iteration[10/54] Loss: 0.843, Acc: 0.948, Base Lr: 2.24e-04
+2025-12-13 09:51:26,105 Signal.train INFO: Epoch[6] Iteration[20/54] Loss: 0.867, Acc: 0.955, Base Lr: 2.24e-04
+2025-12-13 09:51:28,980 Signal.train INFO: Epoch[6] Iteration[30/54] Loss: 0.841, Acc: 0.953, Base Lr: 2.24e-04
+2025-12-13 09:51:31,857 Signal.train INFO: Epoch[6] Iteration[40/54] Loss: 0.888, Acc: 0.944, Base Lr: 2.24e-04
+2025-12-13 09:51:34,701 Signal.train INFO: Epoch[6] Iteration[50/54] Loss: 0.901, Acc: 0.943, Base Lr: 2.24e-04
+2025-12-13 09:51:35,631 Signal.train INFO: Epoch 6 done. Time per batch: 0.299[s] Speed: 213.7[samples/s]
+2025-12-13 09:51:35,632 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:35,632 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:51:35,633 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:46,223 Signal.train INFO: Validation Results - Epoch: 6
+2025-12-13 09:51:46,224 Signal.train INFO: mAP: 63.9%
+2025-12-13 09:51:46,224 Signal.train INFO: CMC curve, Rank-1  :69.5%
+2025-12-13 09:51:46,224 Signal.train INFO: CMC curve, Rank-5  :79.1%
+2025-12-13 09:51:46,224 Signal.train INFO: CMC curve, Rank-10 :84.9%
+2025-12-13 09:51:46,224 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:46,264 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:46,265 Signal.train INFO: Best mAP: 69.7%
+2025-12-13 09:51:46,265 Signal.train INFO: Best Rank-1: 75.4%
+2025-12-13 09:51:46,265 Signal.train INFO: Best Rank-5: 84.6%
+2025-12-13 09:51:46,265 Signal.train INFO: Best Rank-10: 88.8%
+2025-12-13 09:51:46,265 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:51:49,819 Signal.train INFO: Epoch[7] Iteration[10/54] Loss: 0.696, Acc: 0.986, Base Lr: 2.55e-04
+2025-12-13 09:51:52,708 Signal.train INFO: Epoch[7] Iteration[20/54] Loss: 0.679, Acc: 0.988, Base Lr: 2.55e-04
+2025-12-13 09:51:55,565 Signal.train INFO: Epoch[7] Iteration[30/54] Loss: 0.681, Acc: 0.984, Base Lr: 2.55e-04
+2025-12-13 09:51:58,424 Signal.train INFO: Epoch[7] Iteration[40/54] Loss: 0.662, Acc: 0.986, Base Lr: 2.55e-04
+2025-12-13 09:52:01,291 Signal.train INFO: Epoch[7] Iteration[50/54] Loss: 0.667, Acc: 0.987, Base Lr: 2.55e-04
+2025-12-13 09:52:02,234 Signal.train INFO: Epoch 7 done. Time per batch: 0.301[s] Speed: 212.4[samples/s]
+2025-12-13 09:52:02,275 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:02,275 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:52:02,276 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:13,111 Signal.train INFO: Validation Results - Epoch: 7
+2025-12-13 09:52:13,112 Signal.train INFO: mAP: 73.6%
+2025-12-13 09:52:13,112 Signal.train INFO: CMC curve, Rank-1  :77.8%
+2025-12-13 09:52:13,112 Signal.train INFO: CMC curve, Rank-5  :86.6%
+2025-12-13 09:52:13,112 Signal.train INFO: CMC curve, Rank-10 :90.7%
+2025-12-13 09:52:13,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:16,330 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:16,330 Signal.train INFO: Best mAP: 73.6%
+2025-12-13 09:52:16,330 Signal.train INFO: Best Rank-1: 77.8%
+2025-12-13 09:52:16,330 Signal.train INFO: Best Rank-5: 86.6%
+2025-12-13 09:52:16,330 Signal.train INFO: Best Rank-10: 90.7%
+2025-12-13 09:52:16,330 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:20,071 Signal.train INFO: Epoch[8] Iteration[10/54] Loss: 0.557, Acc: 0.991, Base Lr: 2.87e-04
+2025-12-13 09:52:22,959 Signal.train INFO: Epoch[8] Iteration[20/54] Loss: 0.556, Acc: 0.994, Base Lr: 2.87e-04
+2025-12-13 09:52:25,838 Signal.train INFO: Epoch[8] Iteration[30/54] Loss: 0.553, Acc: 0.995, Base Lr: 2.87e-04
+2025-12-13 09:52:28,696 Signal.train INFO: Epoch[8] Iteration[40/54] Loss: 0.559, Acc: 0.995, Base Lr: 2.87e-04
+2025-12-13 09:52:31,587 Signal.train INFO: Epoch[8] Iteration[50/54] Loss: 0.559, Acc: 0.996, Base Lr: 2.87e-04
+2025-12-13 09:52:32,550 Signal.train INFO: Epoch 8 done. Time per batch: 0.306[s] Speed: 209.1[samples/s]
+2025-12-13 09:52:32,552 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:32,552 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:52:32,552 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:43,167 Signal.train INFO: Validation Results - Epoch: 8
+2025-12-13 09:52:43,168 Signal.train INFO: mAP: 73.8%
+2025-12-13 09:52:43,168 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 09:52:43,168 Signal.train INFO: CMC curve, Rank-5  :86.1%
+2025-12-13 09:52:43,168 Signal.train INFO: CMC curve, Rank-10 :90.1%
+2025-12-13 09:52:43,168 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:46,397 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:46,397 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:52:46,397 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:52:46,397 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:52:46,397 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:52:46,397 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:52:49,972 Signal.train INFO: Epoch[9] Iteration[10/54] Loss: 0.536, Acc: 0.997, Base Lr: 3.18e-04
+2025-12-13 09:52:52,839 Signal.train INFO: Epoch[9] Iteration[20/54] Loss: 0.534, Acc: 0.997, Base Lr: 3.18e-04
+2025-12-13 09:52:55,739 Signal.train INFO: Epoch[9] Iteration[30/54] Loss: 0.531, Acc: 0.997, Base Lr: 3.18e-04
+2025-12-13 09:52:58,606 Signal.train INFO: Epoch[9] Iteration[40/54] Loss: 0.528, Acc: 0.998, Base Lr: 3.18e-04
+2025-12-13 09:53:01,505 Signal.train INFO: Epoch[9] Iteration[50/54] Loss: 0.527, Acc: 0.998, Base Lr: 3.18e-04
+2025-12-13 09:53:02,449 Signal.train INFO: Epoch 9 done. Time per batch: 0.303[s] Speed: 211.3[samples/s]
+2025-12-13 09:53:02,452 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:02,452 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:53:02,452 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:13,387 Signal.train INFO: Validation Results - Epoch: 9
+2025-12-13 09:53:13,387 Signal.train INFO: mAP: 73.4%
+2025-12-13 09:53:13,387 Signal.train INFO: CMC curve, Rank-1  :76.0%
+2025-12-13 09:53:13,387 Signal.train INFO: CMC curve, Rank-5  :85.3%
+2025-12-13 09:53:13,387 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 09:53:13,387 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:13,427 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:13,428 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:53:13,428 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:53:13,428 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:53:13,428 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:53:13,428 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:17,036 Signal.train INFO: Epoch[10] Iteration[10/54] Loss: 0.501, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:19,918 Signal.train INFO: Epoch[10] Iteration[20/54] Loss: 0.508, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:22,794 Signal.train INFO: Epoch[10] Iteration[30/54] Loss: 0.520, Acc: 0.999, Base Lr: 3.17e-04
+2025-12-13 09:53:25,652 Signal.train INFO: Epoch[10] Iteration[40/54] Loss: 0.514, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:28,602 Signal.train INFO: Epoch[10] Iteration[50/54] Loss: 0.512, Acc: 1.000, Base Lr: 3.17e-04
+2025-12-13 09:53:29,528 Signal.train INFO: Epoch 10 done. Time per batch: 0.304[s] Speed: 210.7[samples/s]
+2025-12-13 09:53:29,530 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:29,530 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:53:29,530 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:40,292 Signal.train INFO: Validation Results - Epoch: 10
+2025-12-13 09:53:40,293 Signal.train INFO: mAP: 72.0%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-1  :73.9%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-5  :84.3%
+2025-12-13 09:53:40,293 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 09:53:40,293 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:40,333 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:40,334 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:53:40,334 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:53:40,334 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:43,925 Signal.train INFO: Epoch[11] Iteration[10/54] Loss: 0.500, Acc: 0.997, Base Lr: 3.10e-04
+2025-12-13 09:53:46,826 Signal.train INFO: Epoch[11] Iteration[20/54] Loss: 0.501, Acc: 0.998, Base Lr: 3.10e-04
+2025-12-13 09:53:49,671 Signal.train INFO: Epoch[11] Iteration[30/54] Loss: 0.502, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:52,530 Signal.train INFO: Epoch[11] Iteration[40/54] Loss: 0.506, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:55,479 Signal.train INFO: Epoch[11] Iteration[50/54] Loss: 0.507, Acc: 0.999, Base Lr: 3.10e-04
+2025-12-13 09:53:56,430 Signal.train INFO: Epoch 11 done. Time per batch: 0.304[s] Speed: 210.7[samples/s]
+2025-12-13 09:53:56,432 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:53:56,432 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:53:56,432 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:07,398 Signal.train INFO: Validation Results - Epoch: 11
+2025-12-13 09:54:07,399 Signal.train INFO: mAP: 72.7%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-1  :74.6%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-5  :84.0%
+2025-12-13 09:54:07,399 Signal.train INFO: CMC curve, Rank-10 :88.4%
+2025-12-13 09:54:07,399 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:07,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:07,439 Signal.train INFO: Best mAP: 73.8%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-1: 76.2%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-5: 86.1%
+2025-12-13 09:54:07,439 Signal.train INFO: Best Rank-10: 90.1%
+2025-12-13 09:54:07,439 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:11,211 Signal.train INFO: Epoch[12] Iteration[10/54] Loss: 0.492, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:14,113 Signal.train INFO: Epoch[12] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:16,964 Signal.train INFO: Epoch[12] Iteration[30/54] Loss: 0.508, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:19,837 Signal.train INFO: Epoch[12] Iteration[40/54] Loss: 0.511, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:22,760 Signal.train INFO: Epoch[12] Iteration[50/54] Loss: 0.507, Acc: 1.000, Base Lr: 3.03e-04
+2025-12-13 09:54:23,707 Signal.train INFO: Epoch 12 done. Time per batch: 0.307[s] Speed: 208.5[samples/s]
+2025-12-13 09:54:23,749 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:23,749 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:54:23,749 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:34,308 Signal.train INFO: Validation Results - Epoch: 12
+2025-12-13 09:54:34,308 Signal.train INFO: mAP: 74.2%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 09:54:34,308 Signal.train INFO: CMC curve, Rank-10 :89.0%
+2025-12-13 09:54:34,308 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:37,522 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:37,523 Signal.train INFO: Best mAP: 74.2%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-1: 76.7%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-5: 85.0%
+2025-12-13 09:54:37,523 Signal.train INFO: Best Rank-10: 89.0%
+2025-12-13 09:54:37,523 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:41,276 Signal.train INFO: Epoch[13] Iteration[10/54] Loss: 0.510, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:44,195 Signal.train INFO: Epoch[13] Iteration[20/54] Loss: 0.502, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:47,061 Signal.train INFO: Epoch[13] Iteration[30/54] Loss: 0.496, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:49,953 Signal.train INFO: Epoch[13] Iteration[40/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:52,815 Signal.train INFO: Epoch[13] Iteration[50/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.95e-04
+2025-12-13 09:54:53,763 Signal.train INFO: Epoch 13 done. Time per batch: 0.306[s] Speed: 208.9[samples/s]
+2025-12-13 09:54:53,764 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:54:53,765 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:54:53,765 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:04,590 Signal.train INFO: Validation Results - Epoch: 13
+2025-12-13 09:55:04,590 Signal.train INFO: mAP: 74.4%
+2025-12-13 09:55:04,590 Signal.train INFO: CMC curve, Rank-1  :76.3%
+2025-12-13 09:55:04,591 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 09:55:04,591 Signal.train INFO: CMC curve, Rank-10 :89.2%
+2025-12-13 09:55:04,591 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:07,823 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:07,823 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:55:07,823 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:55:07,823 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:55:07,824 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:55:07,824 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:11,438 Signal.train INFO: Epoch[14] Iteration[10/54] Loss: 0.485, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:14,288 Signal.train INFO: Epoch[14] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:17,261 Signal.train INFO: Epoch[14] Iteration[30/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:20,125 Signal.train INFO: Epoch[14] Iteration[40/54] Loss: 0.493, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:23,012 Signal.train INFO: Epoch[14] Iteration[50/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.87e-04
+2025-12-13 09:55:23,945 Signal.train INFO: Epoch 14 done. Time per batch: 0.304[s] Speed: 210.4[samples/s]
+2025-12-13 09:55:23,946 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:23,946 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:55:23,946 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:34,775 Signal.train INFO: Validation Results - Epoch: 14
+2025-12-13 09:55:34,776 Signal.train INFO: mAP: 74.0%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-5  :84.2%
+2025-12-13 09:55:34,776 Signal.train INFO: CMC curve, Rank-10 :89.5%
+2025-12-13 09:55:34,776 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:34,816 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:34,817 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:55:34,817 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:55:34,817 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:38,343 Signal.train INFO: Epoch[15] Iteration[10/54] Loss: 0.486, Acc: 0.998, Base Lr: 2.78e-04
+2025-12-13 09:55:41,215 Signal.train INFO: Epoch[15] Iteration[20/54] Loss: 0.486, Acc: 0.999, Base Lr: 2.78e-04
+2025-12-13 09:55:44,107 Signal.train INFO: Epoch[15] Iteration[30/54] Loss: 0.485, Acc: 0.999, Base Lr: 2.78e-04
+2025-12-13 09:55:46,991 Signal.train INFO: Epoch[15] Iteration[40/54] Loss: 0.508, Acc: 1.000, Base Lr: 2.78e-04
+2025-12-13 09:55:49,880 Signal.train INFO: Epoch[15] Iteration[50/54] Loss: 0.505, Acc: 1.000, Base Lr: 2.78e-04
+2025-12-13 09:55:50,820 Signal.train INFO: Epoch 15 done. Time per batch: 0.302[s] Speed: 212.0[samples/s]
+2025-12-13 09:55:50,826 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:55:50,827 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:55:50,827 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:01,690 Signal.train INFO: Validation Results - Epoch: 15
+2025-12-13 09:56:01,690 Signal.train INFO: mAP: 72.5%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-5  :84.0%
+2025-12-13 09:56:01,690 Signal.train INFO: CMC curve, Rank-10 :88.9%
+2025-12-13 09:56:01,691 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:01,732 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:01,732 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:01,732 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:01,733 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:05,442 Signal.train INFO: Epoch[16] Iteration[10/54] Loss: 0.490, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:08,342 Signal.train INFO: Epoch[16] Iteration[20/54] Loss: 0.500, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:11,200 Signal.train INFO: Epoch[16] Iteration[30/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.69e-04
+2025-12-13 09:56:14,075 Signal.train INFO: Epoch[16] Iteration[40/54] Loss: 0.494, Acc: 0.999, Base Lr: 2.69e-04
+2025-12-13 09:56:16,998 Signal.train INFO: Epoch[16] Iteration[50/54] Loss: 0.491, Acc: 0.999, Base Lr: 2.69e-04
+2025-12-13 09:56:17,936 Signal.train INFO: Epoch 16 done. Time per batch: 0.306[s] Speed: 209.3[samples/s]
+2025-12-13 09:56:17,938 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:17,938 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:56:17,938 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:28,813 Signal.train INFO: Validation Results - Epoch: 16
+2025-12-13 09:56:28,813 Signal.train INFO: mAP: 72.5%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-1  :76.0%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-5  :83.3%
+2025-12-13 09:56:28,813 Signal.train INFO: CMC curve, Rank-10 :89.1%
+2025-12-13 09:56:28,813 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:28,855 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:28,856 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:28,856 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:28,856 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:32,625 Signal.train INFO: Epoch[17] Iteration[10/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:35,502 Signal.train INFO: Epoch[17] Iteration[20/54] Loss: 0.495, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:38,369 Signal.train INFO: Epoch[17] Iteration[30/54] Loss: 0.492, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:41,317 Signal.train INFO: Epoch[17] Iteration[40/54] Loss: 0.489, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:44,187 Signal.train INFO: Epoch[17] Iteration[50/54] Loss: 0.486, Acc: 1.000, Base Lr: 2.59e-04
+2025-12-13 09:56:45,122 Signal.train INFO: Epoch 17 done. Time per batch: 0.307[s] Speed: 208.5[samples/s]
+2025-12-13 09:56:45,127 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:45,127 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:56:45,127 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:56,023 Signal.train INFO: Validation Results - Epoch: 17
+2025-12-13 09:56:56,023 Signal.train INFO: mAP: 73.9%
+2025-12-13 09:56:56,023 Signal.train INFO: CMC curve, Rank-1  :77.3%
+2025-12-13 09:56:56,024 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 09:56:56,024 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 09:56:56,024 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:56,068 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:56,069 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:56:56,069 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:56:56,069 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:56:59,854 Signal.train INFO: Epoch[18] Iteration[10/54] Loss: 0.482, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:02,736 Signal.train INFO: Epoch[18] Iteration[20/54] Loss: 0.501, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:05,612 Signal.train INFO: Epoch[18] Iteration[30/54] Loss: 0.496, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:08,615 Signal.train INFO: Epoch[18] Iteration[40/54] Loss: 0.491, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:11,492 Signal.train INFO: Epoch[18] Iteration[50/54] Loss: 0.490, Acc: 1.000, Base Lr: 2.50e-04
+2025-12-13 09:57:12,436 Signal.train INFO: Epoch 18 done. Time per batch: 0.309[s] Speed: 207.3[samples/s]
+2025-12-13 09:57:12,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:12,438 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:57:12,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:23,412 Signal.train INFO: Validation Results - Epoch: 18
+2025-12-13 09:57:23,412 Signal.train INFO: mAP: 73.7%
+2025-12-13 09:57:23,412 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 09:57:23,413 Signal.train INFO: CMC curve, Rank-5  :85.6%
+2025-12-13 09:57:23,413 Signal.train INFO: CMC curve, Rank-10 :90.0%
+2025-12-13 09:57:23,413 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:23,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:23,454 Signal.train INFO: Best mAP: 74.4%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-1: 76.3%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-5: 84.4%
+2025-12-13 09:57:23,454 Signal.train INFO: Best Rank-10: 89.2%
+2025-12-13 09:57:23,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:27,090 Signal.train INFO: Epoch[19] Iteration[10/54] Loss: 0.476, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:29,978 Signal.train INFO: Epoch[19] Iteration[20/54] Loss: 0.482, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:32,847 Signal.train INFO: Epoch[19] Iteration[30/54] Loss: 0.480, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:35,776 Signal.train INFO: Epoch[19] Iteration[40/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:38,671 Signal.train INFO: Epoch[19] Iteration[50/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.40e-04
+2025-12-13 09:57:39,602 Signal.train INFO: Epoch 19 done. Time per batch: 0.305[s] Speed: 210.1[samples/s]
+2025-12-13 09:57:39,604 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:39,604 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:57:39,604 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:50,635 Signal.train INFO: Validation Results - Epoch: 19
+2025-12-13 09:57:50,636 Signal.train INFO: mAP: 74.9%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-5  :86.0%
+2025-12-13 09:57:50,636 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 09:57:50,636 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:53,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:53,862 Signal.train INFO: Best mAP: 74.9%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-1: 76.8%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-5: 86.0%
+2025-12-13 09:57:53,862 Signal.train INFO: Best Rank-10: 90.3%
+2025-12-13 09:57:53,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:57:57,330 Signal.train INFO: Epoch[20] Iteration[10/54] Loss: 0.478, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:00,207 Signal.train INFO: Epoch[20] Iteration[20/54] Loss: 0.477, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:03,134 Signal.train INFO: Epoch[20] Iteration[30/54] Loss: 0.476, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:05,998 Signal.train INFO: Epoch[20] Iteration[40/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:08,834 Signal.train INFO: Epoch[20] Iteration[50/54] Loss: 0.479, Acc: 1.000, Base Lr: 2.29e-04
+2025-12-13 09:58:09,765 Signal.train INFO: Epoch 20 done. Time per batch: 0.300[s] Speed: 213.3[samples/s]
+2025-12-13 09:58:09,770 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:09,770 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:58:09,770 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:20,532 Signal.train INFO: Validation Results - Epoch: 20
+2025-12-13 09:58:20,532 Signal.train INFO: mAP: 75.2%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-1  :77.6%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-5  :85.9%
+2025-12-13 09:58:20,533 Signal.train INFO: CMC curve, Rank-10 :90.9%
+2025-12-13 09:58:20,533 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:23,762 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:23,762 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:58:23,762 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:58:23,762 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:27,577 Signal.train INFO: Epoch[21] Iteration[10/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:30,484 Signal.train INFO: Epoch[21] Iteration[20/54] Loss: 0.475, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:33,352 Signal.train INFO: Epoch[21] Iteration[30/54] Loss: 0.474, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:36,244 Signal.train INFO: Epoch[21] Iteration[40/54] Loss: 0.474, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:39,157 Signal.train INFO: Epoch[21] Iteration[50/54] Loss: 0.473, Acc: 1.000, Base Lr: 2.19e-04
+2025-12-13 09:58:40,124 Signal.train INFO: Epoch 21 done. Time per batch: 0.309[s] Speed: 207.3[samples/s]
+2025-12-13 09:58:40,128 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:40,128 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:58:40,128 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:51,164 Signal.train INFO: Validation Results - Epoch: 21
+2025-12-13 09:58:51,165 Signal.train INFO: mAP: 75.0%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-1  :77.4%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 09:58:51,165 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 09:58:51,165 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:51,205 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:51,205 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:58:51,205 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:58:51,205 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:58:54,845 Signal.train INFO: Epoch[22] Iteration[10/54] Loss: 0.477, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:58:57,865 Signal.train INFO: Epoch[22] Iteration[20/54] Loss: 0.471, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:00,726 Signal.train INFO: Epoch[22] Iteration[30/54] Loss: 0.470, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:03,592 Signal.train INFO: Epoch[22] Iteration[40/54] Loss: 0.469, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:06,463 Signal.train INFO: Epoch[22] Iteration[50/54] Loss: 0.468, Acc: 1.000, Base Lr: 2.08e-04
+2025-12-13 09:59:07,462 Signal.train INFO: Epoch 22 done. Time per batch: 0.307[s] Speed: 208.7[samples/s]
+2025-12-13 09:59:07,464 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:07,464 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:59:07,465 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:18,146 Signal.train INFO: Validation Results - Epoch: 22
+2025-12-13 09:59:18,146 Signal.train INFO: mAP: 74.5%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 09:59:18,146 Signal.train INFO: CMC curve, Rank-10 :90.0%
+2025-12-13 09:59:18,146 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:18,187 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:18,187 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:59:18,187 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:59:18,187 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:21,749 Signal.train INFO: Epoch[23] Iteration[10/54] Loss: 0.465, Acc: 0.998, Base Lr: 1.97e-04
+2025-12-13 09:59:24,647 Signal.train INFO: Epoch[23] Iteration[20/54] Loss: 0.463, Acc: 0.999, Base Lr: 1.97e-04
+2025-12-13 09:59:27,538 Signal.train INFO: Epoch[23] Iteration[30/54] Loss: 0.464, Acc: 0.999, Base Lr: 1.97e-04
+2025-12-13 09:59:30,403 Signal.train INFO: Epoch[23] Iteration[40/54] Loss: 0.465, Acc: 1.000, Base Lr: 1.97e-04
+2025-12-13 09:59:33,263 Signal.train INFO: Epoch[23] Iteration[50/54] Loss: 0.465, Acc: 1.000, Base Lr: 1.97e-04
+2025-12-13 09:59:34,209 Signal.train INFO: Epoch 23 done. Time per batch: 0.302[s] Speed: 211.7[samples/s]
+2025-12-13 09:59:34,215 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:34,215 Signal.train INFO: Current is the our feature testing!
+2025-12-13 09:59:34,215 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:45,154 Signal.train INFO: Validation Results - Epoch: 23
+2025-12-13 09:59:45,155 Signal.train INFO: mAP: 74.6%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-5  :85.5%
+2025-12-13 09:59:45,155 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 09:59:45,155 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:45,196 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:45,196 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 09:59:45,196 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 09:59:45,196 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 09:59:48,719 Signal.train INFO: Epoch[24] Iteration[10/54] Loss: 0.466, Acc: 1.000, Base Lr: 1.86e-04
+2025-12-13 09:59:51,625 Signal.train INFO: Epoch[24] Iteration[20/54] Loss: 0.466, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 09:59:54,586 Signal.train INFO: Epoch[24] Iteration[30/54] Loss: 0.465, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 09:59:57,461 Signal.train INFO: Epoch[24] Iteration[40/54] Loss: 0.466, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 10:00:00,326 Signal.train INFO: Epoch[24] Iteration[50/54] Loss: 0.465, Acc: 0.999, Base Lr: 1.86e-04
+2025-12-13 10:00:01,269 Signal.train INFO: Epoch 24 done. Time per batch: 0.303[s] Speed: 211.0[samples/s]
+2025-12-13 10:00:01,271 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:01,271 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:01,271 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:12,070 Signal.train INFO: Validation Results - Epoch: 24
+2025-12-13 10:00:12,071 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:00:12,071 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:00:12,071 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:12,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:12,112 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:00:12,112 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:00:12,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:15,613 Signal.train INFO: Epoch[25] Iteration[10/54] Loss: 0.467, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:18,479 Signal.train INFO: Epoch[25] Iteration[20/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:21,407 Signal.train INFO: Epoch[25] Iteration[30/54] Loss: 0.463, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:24,255 Signal.train INFO: Epoch[25] Iteration[40/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:27,111 Signal.train INFO: Epoch[25] Iteration[50/54] Loss: 0.466, Acc: 1.000, Base Lr: 1.75e-04
+2025-12-13 10:00:28,100 Signal.train INFO: Epoch 25 done. Time per batch: 0.302[s] Speed: 212.2[samples/s]
+2025-12-13 10:00:28,102 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:28,102 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:28,102 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:38,941 Signal.train INFO: Validation Results - Epoch: 25
+2025-12-13 10:00:38,941 Signal.train INFO: mAP: 73.6%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-1  :75.0%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-5  :83.9%
+2025-12-13 10:00:38,941 Signal.train INFO: CMC curve, Rank-10 :89.6%
+2025-12-13 10:00:38,942 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:38,981 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:38,982 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:00:38,982 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:00:38,982 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:42,620 Signal.train INFO: Epoch[26] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:45,498 Signal.train INFO: Epoch[26] Iteration[20/54] Loss: 0.460, Acc: 0.999, Base Lr: 1.64e-04
+2025-12-13 10:00:48,408 Signal.train INFO: Epoch[26] Iteration[30/54] Loss: 0.461, Acc: 0.999, Base Lr: 1.64e-04
+2025-12-13 10:00:51,307 Signal.train INFO: Epoch[26] Iteration[40/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:54,174 Signal.train INFO: Epoch[26] Iteration[50/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.64e-04
+2025-12-13 10:00:55,110 Signal.train INFO: Epoch 26 done. Time per batch: 0.304[s] Speed: 210.3[samples/s]
+2025-12-13 10:00:55,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:00:55,112 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:00:55,112 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:05,818 Signal.train INFO: Validation Results - Epoch: 26
+2025-12-13 10:01:05,818 Signal.train INFO: mAP: 73.3%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-1  :74.9%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-5  :83.1%
+2025-12-13 10:01:05,818 Signal.train INFO: CMC curve, Rank-10 :88.8%
+2025-12-13 10:01:05,819 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:05,859 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:05,859 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:05,859 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:05,860 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:09,329 Signal.train INFO: Epoch[27] Iteration[10/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:12,190 Signal.train INFO: Epoch[27] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:15,133 Signal.train INFO: Epoch[27] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:18,001 Signal.train INFO: Epoch[27] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:20,860 Signal.train INFO: Epoch[27] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.53e-04
+2025-12-13 10:01:21,802 Signal.train INFO: Epoch 27 done. Time per batch: 0.301[s] Speed: 212.8[samples/s]
+2025-12-13 10:01:21,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:21,804 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:01:21,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:32,797 Signal.train INFO: Validation Results - Epoch: 27
+2025-12-13 10:01:32,797 Signal.train INFO: mAP: 73.5%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-1  :75.1%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-5  :84.1%
+2025-12-13 10:01:32,797 Signal.train INFO: CMC curve, Rank-10 :89.0%
+2025-12-13 10:01:32,798 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:32,838 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:32,838 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:32,838 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:32,838 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:32,839 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:32,839 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:36,493 Signal.train INFO: Epoch[28] Iteration[10/54] Loss: 0.464, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:39,373 Signal.train INFO: Epoch[28] Iteration[20/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:42,318 Signal.train INFO: Epoch[28] Iteration[30/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:45,189 Signal.train INFO: Epoch[28] Iteration[40/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:48,063 Signal.train INFO: Epoch[28] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.42e-04
+2025-12-13 10:01:49,004 Signal.train INFO: Epoch 28 done. Time per batch: 0.305[s] Speed: 209.8[samples/s]
+2025-12-13 10:01:49,006 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:49,007 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:01:49,007 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:59,705 Signal.train INFO: Validation Results - Epoch: 28
+2025-12-13 10:01:59,705 Signal.train INFO: mAP: 73.6%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-1  :75.2%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-5  :84.6%
+2025-12-13 10:01:59,705 Signal.train INFO: CMC curve, Rank-10 :89.7%
+2025-12-13 10:01:59,705 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:59,745 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:01:59,745 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:01:59,745 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:01:59,745 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:03,289 Signal.train INFO: Epoch[29] Iteration[10/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:06,179 Signal.train INFO: Epoch[29] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:09,098 Signal.train INFO: Epoch[29] Iteration[30/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:11,977 Signal.train INFO: Epoch[29] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:14,846 Signal.train INFO: Epoch[29] Iteration[50/54] Loss: 0.462, Acc: 1.000, Base Lr: 1.32e-04
+2025-12-13 10:02:15,799 Signal.train INFO: Epoch 29 done. Time per batch: 0.303[s] Speed: 211.3[samples/s]
+2025-12-13 10:02:15,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:15,805 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:02:15,805 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:26,724 Signal.train INFO: Validation Results - Epoch: 29
+2025-12-13 10:02:26,724 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:02:26,724 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:02:26,725 Signal.train INFO: CMC curve, Rank-5  :85.3%
+2025-12-13 10:02:26,725 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:02:26,725 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:26,799 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:26,799 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:02:26,799 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:02:26,799 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:02:26,800 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:02:26,800 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:30,341 Signal.train INFO: Epoch[30] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:33,243 Signal.train INFO: Epoch[30] Iteration[20/54] Loss: 0.461, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:36,135 Signal.train INFO: Epoch[30] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:39,049 Signal.train INFO: Epoch[30] Iteration[40/54] Loss: 0.459, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:41,909 Signal.train INFO: Epoch[30] Iteration[50/54] Loss: 0.459, Acc: 1.000, Base Lr: 1.21e-04
+2025-12-13 10:02:42,867 Signal.train INFO: Epoch 30 done. Time per batch: 0.303[s] Speed: 211.1[samples/s]
+2025-12-13 10:02:42,869 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:42,869 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:02:42,869 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:53,639 Signal.train INFO: Validation Results - Epoch: 30
+2025-12-13 10:02:53,639 Signal.train INFO: mAP: 73.7%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-1  :75.8%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:02:53,640 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:02:53,640 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:53,679 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:53,680 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:02:53,680 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:02:53,680 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:02:57,202 Signal.train INFO: Epoch[31] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:00,079 Signal.train INFO: Epoch[31] Iteration[20/54] Loss: 0.458, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:03,024 Signal.train INFO: Epoch[31] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:05,946 Signal.train INFO: Epoch[31] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:08,831 Signal.train INFO: Epoch[31] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.11e-04
+2025-12-13 10:03:09,765 Signal.train INFO: Epoch 31 done. Time per batch: 0.303[s] Speed: 210.9[samples/s]
+2025-12-13 10:03:09,767 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:09,767 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:03:09,768 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:20,580 Signal.train INFO: Validation Results - Epoch: 31
+2025-12-13 10:03:20,580 Signal.train INFO: mAP: 73.9%
+2025-12-13 10:03:20,580 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:03:20,580 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:03:20,581 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:03:20,581 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:20,620 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:20,621 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:03:20,621 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:03:20,621 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:24,135 Signal.train INFO: Epoch[32] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:27,024 Signal.train INFO: Epoch[32] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:29,952 Signal.train INFO: Epoch[32] Iteration[30/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:32,799 Signal.train INFO: Epoch[32] Iteration[40/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:35,729 Signal.train INFO: Epoch[32] Iteration[50/54] Loss: 0.460, Acc: 1.000, Base Lr: 1.01e-04
+2025-12-13 10:03:36,679 Signal.train INFO: Epoch 32 done. Time per batch: 0.303[s] Speed: 211.2[samples/s]
+2025-12-13 10:03:36,681 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:36,681 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:03:36,681 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:47,558 Signal.train INFO: Validation Results - Epoch: 32
+2025-12-13 10:03:47,559 Signal.train INFO: mAP: 74.0%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-1  :75.7%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:03:47,559 Signal.train INFO: CMC curve, Rank-10 :90.6%
+2025-12-13 10:03:47,559 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:47,644 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:47,644 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:03:47,644 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:03:47,644 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:03:51,581 Signal.train INFO: Epoch[33] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:03:54,471 Signal.train INFO: Epoch[33] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:03:57,354 Signal.train INFO: Epoch[33] Iteration[30/54] Loss: 0.458, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:00,227 Signal.train INFO: Epoch[33] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:03,118 Signal.train INFO: Epoch[33] Iteration[50/54] Loss: 0.459, Acc: 1.000, Base Lr: 9.10e-05
+2025-12-13 10:04:04,083 Signal.train INFO: Epoch 33 done. Time per batch: 0.310[s] Speed: 206.4[samples/s]
+2025-12-13 10:04:04,088 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:04,089 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:04,089 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:14,863 Signal.train INFO: Validation Results - Epoch: 33
+2025-12-13 10:04:14,864 Signal.train INFO: mAP: 73.9%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-1  :75.5%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:04:14,864 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:04:14,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:14,912 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:14,912 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:04:14,913 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:04:14,913 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:18,596 Signal.train INFO: Epoch[34] Iteration[10/54] Loss: 0.459, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:21,472 Signal.train INFO: Epoch[34] Iteration[20/54] Loss: 0.457, Acc: 0.999, Base Lr: 8.15e-05
+2025-12-13 10:04:24,352 Signal.train INFO: Epoch[34] Iteration[30/54] Loss: 0.456, Acc: 0.999, Base Lr: 8.15e-05
+2025-12-13 10:04:27,307 Signal.train INFO: Epoch[34] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:30,191 Signal.train INFO: Epoch[34] Iteration[50/54] Loss: 0.457, Acc: 1.000, Base Lr: 8.15e-05
+2025-12-13 10:04:31,131 Signal.train INFO: Epoch 34 done. Time per batch: 0.306[s] Speed: 209.2[samples/s]
+2025-12-13 10:04:31,133 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:31,133 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:31,133 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:41,980 Signal.train INFO: Validation Results - Epoch: 34
+2025-12-13 10:04:41,980 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:04:41,980 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:04:41,980 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:42,020 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:42,020 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:04:42,020 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:04:42,020 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:04:42,021 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:04:42,021 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:46,276 Signal.train INFO: Epoch[35] Iteration[10/54] Loss: 0.456, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:49,160 Signal.train INFO: Epoch[35] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:52,040 Signal.train INFO: Epoch[35] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:54,961 Signal.train INFO: Epoch[35] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:57,831 Signal.train INFO: Epoch[35] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 7.24e-05
+2025-12-13 10:04:58,801 Signal.train INFO: Epoch 35 done. Time per batch: 0.317[s] Speed: 202.1[samples/s]
+2025-12-13 10:04:58,803 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:04:58,803 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:04:58,803 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:09,820 Signal.train INFO: Validation Results - Epoch: 35
+2025-12-13 10:05:09,821 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-5  :84.6%
+2025-12-13 10:05:09,821 Signal.train INFO: CMC curve, Rank-10 :89.4%
+2025-12-13 10:05:09,821 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:09,861 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:09,861 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:05:09,862 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:05:09,862 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:13,778 Signal.train INFO: Epoch[36] Iteration[10/54] Loss: 0.460, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:16,658 Signal.train INFO: Epoch[36] Iteration[20/54] Loss: 0.460, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:19,523 Signal.train INFO: Epoch[36] Iteration[30/54] Loss: 0.459, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:22,434 Signal.train INFO: Epoch[36] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:25,303 Signal.train INFO: Epoch[36] Iteration[50/54] Loss: 0.457, Acc: 1.000, Base Lr: 6.37e-05
+2025-12-13 10:05:26,243 Signal.train INFO: Epoch 36 done. Time per batch: 0.309[s] Speed: 207.1[samples/s]
+2025-12-13 10:05:26,245 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:26,245 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:05:26,245 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:37,079 Signal.train INFO: Validation Results - Epoch: 36
+2025-12-13 10:05:37,080 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-1  :76.1%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:05:37,080 Signal.train INFO: CMC curve, Rank-10 :89.2%
+2025-12-13 10:05:37,080 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:37,120 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:37,120 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:05:37,121 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:05:37,121 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:40,838 Signal.train INFO: Epoch[37] Iteration[10/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:43,711 Signal.train INFO: Epoch[37] Iteration[20/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:46,589 Signal.train INFO: Epoch[37] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:49,461 Signal.train INFO: Epoch[37] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:52,353 Signal.train INFO: Epoch[37] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.55e-05
+2025-12-13 10:05:53,312 Signal.train INFO: Epoch 37 done. Time per batch: 0.305[s] Speed: 209.5[samples/s]
+2025-12-13 10:05:53,315 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:05:53,315 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:05:53,315 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:04,235 Signal.train INFO: Validation Results - Epoch: 37
+2025-12-13 10:06:04,236 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-5  :84.8%
+2025-12-13 10:06:04,236 Signal.train INFO: CMC curve, Rank-10 :89.8%
+2025-12-13 10:06:04,236 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:04,275 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:04,275 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:04,276 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:04,276 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:07,842 Signal.train INFO: Epoch[38] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:10,735 Signal.train INFO: Epoch[38] Iteration[20/54] Loss: 0.458, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:13,617 Signal.train INFO: Epoch[38] Iteration[30/54] Loss: 0.459, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:16,502 Signal.train INFO: Epoch[38] Iteration[40/54] Loss: 0.458, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:19,381 Signal.train INFO: Epoch[38] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 4.77e-05
+2025-12-13 10:06:20,320 Signal.train INFO: Epoch 38 done. Time per batch: 0.303[s] Speed: 211.4[samples/s]
+2025-12-13 10:06:20,329 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:20,329 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:06:20,330 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:31,232 Signal.train INFO: Validation Results - Epoch: 38
+2025-12-13 10:06:31,232 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:31,232 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:06:31,232 Signal.train INFO: CMC curve, Rank-5  :84.7%
+2025-12-13 10:06:31,233 Signal.train INFO: CMC curve, Rank-10 :89.7%
+2025-12-13 10:06:31,233 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:31,273 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:31,273 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:31,273 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:31,273 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:34,831 Signal.train INFO: Epoch[39] Iteration[10/54] Loss: 0.451, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:37,716 Signal.train INFO: Epoch[39] Iteration[20/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:40,612 Signal.train INFO: Epoch[39] Iteration[30/54] Loss: 0.457, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:43,495 Signal.train INFO: Epoch[39] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:46,389 Signal.train INFO: Epoch[39] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 4.05e-05
+2025-12-13 10:06:47,329 Signal.train INFO: Epoch 39 done. Time per batch: 0.303[s] Speed: 211.3[samples/s]
+2025-12-13 10:06:47,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:47,331 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:06:47,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:58,155 Signal.train INFO: Validation Results - Epoch: 39
+2025-12-13 10:06:58,155 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-5  :84.9%
+2025-12-13 10:06:58,155 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:06:58,155 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:58,235 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:06:58,235 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:06:58,235 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:06:58,236 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:01,816 Signal.train INFO: Epoch[40] Iteration[10/54] Loss: 0.457, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:04,731 Signal.train INFO: Epoch[40] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:07,623 Signal.train INFO: Epoch[40] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:10,523 Signal.train INFO: Epoch[40] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:13,406 Signal.train INFO: Epoch[40] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 3.37e-05
+2025-12-13 10:07:14,373 Signal.train INFO: Epoch 40 done. Time per batch: 0.304[s] Speed: 210.2[samples/s]
+2025-12-13 10:07:14,378 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:14,378 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:07:14,378 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:25,212 Signal.train INFO: Validation Results - Epoch: 40
+2025-12-13 10:07:25,212 Signal.train INFO: mAP: 74.1%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:07:25,212 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:07:25,212 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:25,261 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:25,261 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:07:25,262 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:07:25,262 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:28,990 Signal.train INFO: Epoch[41] Iteration[10/54] Loss: 0.455, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:31,951 Signal.train INFO: Epoch[41] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:34,833 Signal.train INFO: Epoch[41] Iteration[30/54] Loss: 0.456, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:37,733 Signal.train INFO: Epoch[41] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:40,596 Signal.train INFO: Epoch[41] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 2.76e-05
+2025-12-13 10:07:41,563 Signal.train INFO: Epoch 41 done. Time per batch: 0.308[s] Speed: 208.1[samples/s]
+2025-12-13 10:07:41,566 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:41,566 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:07:41,566 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:52,294 Signal.train INFO: Validation Results - Epoch: 41
+2025-12-13 10:07:52,294 Signal.train INFO: mAP: 74.1%
+2025-12-13 10:07:52,294 Signal.train INFO: CMC curve, Rank-1  :76.6%
+2025-12-13 10:07:52,295 Signal.train INFO: CMC curve, Rank-5  :84.8%
+2025-12-13 10:07:52,295 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:07:52,295 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:52,335 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:52,335 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:07:52,335 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:07:52,336 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:07:52,336 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:07:52,336 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:07:55,952 Signal.train INFO: Epoch[42] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:07:58,844 Signal.train INFO: Epoch[42] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:01,703 Signal.train INFO: Epoch[42] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:04,599 Signal.train INFO: Epoch[42] Iteration[40/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:07,464 Signal.train INFO: Epoch[42] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 2.20e-05
+2025-12-13 10:08:08,404 Signal.train INFO: Epoch 42 done. Time per batch: 0.303[s] Speed: 211.1[samples/s]
+2025-12-13 10:08:08,409 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:08,409 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:08:08,409 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:19,068 Signal.train INFO: Validation Results - Epoch: 42
+2025-12-13 10:08:19,069 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-1  :76.3%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-5  :84.3%
+2025-12-13 10:08:19,069 Signal.train INFO: CMC curve, Rank-10 :90.2%
+2025-12-13 10:08:19,069 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:19,157 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:19,157 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:08:19,158 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:08:19,158 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:22,813 Signal.train INFO: Epoch[43] Iteration[10/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:25,676 Signal.train INFO: Epoch[43] Iteration[20/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:28,557 Signal.train INFO: Epoch[43] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:31,421 Signal.train INFO: Epoch[43] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:34,288 Signal.train INFO: Epoch[43] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.70e-05
+2025-12-13 10:08:35,218 Signal.train INFO: Epoch 43 done. Time per batch: 0.303[s] Speed: 211.2[samples/s]
+2025-12-13 10:08:35,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:35,220 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:08:35,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:46,129 Signal.train INFO: Validation Results - Epoch: 43
+2025-12-13 10:08:46,129 Signal.train INFO: mAP: 73.8%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-1  :76.2%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-5  :84.4%
+2025-12-13 10:08:46,130 Signal.train INFO: CMC curve, Rank-10 :90.1%
+2025-12-13 10:08:46,130 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:46,170 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:46,170 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:08:46,170 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:08:46,170 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:08:49,812 Signal.train INFO: Epoch[44] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:52,675 Signal.train INFO: Epoch[44] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:55,532 Signal.train INFO: Epoch[44] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:08:58,372 Signal.train INFO: Epoch[44] Iteration[40/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:09:01,203 Signal.train INFO: Epoch[44] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.26e-05
+2025-12-13 10:09:02,134 Signal.train INFO: Epoch 44 done. Time per batch: 0.301[s] Speed: 212.5[samples/s]
+2025-12-13 10:09:02,136 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:02,136 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:02,137 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:12,803 Signal.train INFO: Validation Results - Epoch: 44
+2025-12-13 10:09:12,804 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:09:12,804 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:09:12,804 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:12,844 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:12,844 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:09:12,844 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:09:12,844 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:16,553 Signal.train INFO: Epoch[45] Iteration[10/54] Loss: 0.455, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:19,418 Signal.train INFO: Epoch[45] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:22,264 Signal.train INFO: Epoch[45] Iteration[30/54] Loss: 0.452, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:25,105 Signal.train INFO: Epoch[45] Iteration[40/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:27,932 Signal.train INFO: Epoch[45] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 8.91e-06
+2025-12-13 10:09:28,862 Signal.train INFO: Epoch 45 done. Time per batch: 0.302[s] Speed: 211.8[samples/s]
+2025-12-13 10:09:28,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:28,864 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:28,864 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:39,578 Signal.train INFO: Validation Results - Epoch: 45
+2025-12-13 10:09:39,578 Signal.train INFO: mAP: 74.2%
+2025-12-13 10:09:39,578 Signal.train INFO: CMC curve, Rank-1  :76.4%
+2025-12-13 10:09:39,579 Signal.train INFO: CMC curve, Rank-5  :85.0%
+2025-12-13 10:09:39,579 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:09:39,579 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:39,629 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:39,629 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:09:39,629 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:09:39,629 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:43,142 Signal.train INFO: Epoch[46] Iteration[10/54] Loss: 0.458, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:45,999 Signal.train INFO: Epoch[46] Iteration[20/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:48,850 Signal.train INFO: Epoch[46] Iteration[30/54] Loss: 0.456, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:51,702 Signal.train INFO: Epoch[46] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:54,523 Signal.train INFO: Epoch[46] Iteration[50/54] Loss: 0.454, Acc: 1.000, Base Lr: 5.84e-06
+2025-12-13 10:09:55,452 Signal.train INFO: Epoch 46 done. Time per batch: 0.299[s] Speed: 214.4[samples/s]
+2025-12-13 10:09:55,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:09:55,454 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:09:55,454 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:06,094 Signal.train INFO: Validation Results - Epoch: 46
+2025-12-13 10:10:06,095 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-1  :76.8%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-5  :85.5%
+2025-12-13 10:10:06,095 Signal.train INFO: CMC curve, Rank-10 :90.8%
+2025-12-13 10:10:06,095 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:06,135 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:06,135 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:06,135 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:06,136 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:09,778 Signal.train INFO: Epoch[47] Iteration[10/54] Loss: 0.449, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:12,630 Signal.train INFO: Epoch[47] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:15,472 Signal.train INFO: Epoch[47] Iteration[30/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:18,311 Signal.train INFO: Epoch[47] Iteration[40/54] Loss: 0.452, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:21,140 Signal.train INFO: Epoch[47] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 3.45e-06
+2025-12-13 10:10:22,077 Signal.train INFO: Epoch 47 done. Time per batch: 0.301[s] Speed: 212.8[samples/s]
+2025-12-13 10:10:22,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:22,079 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:10:22,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:32,758 Signal.train INFO: Validation Results - Epoch: 47
+2025-12-13 10:10:32,758 Signal.train INFO: mAP: 74.5%
+2025-12-13 10:10:32,758 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:10:32,758 Signal.train INFO: CMC curve, Rank-5  :85.6%
+2025-12-13 10:10:32,759 Signal.train INFO: CMC curve, Rank-10 :90.7%
+2025-12-13 10:10:32,759 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:32,799 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:32,799 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:32,799 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:32,800 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:36,309 Signal.train INFO: Epoch[48] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:39,194 Signal.train INFO: Epoch[48] Iteration[20/54] Loss: 0.453, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:42,067 Signal.train INFO: Epoch[48] Iteration[30/54] Loss: 0.454, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:44,919 Signal.train INFO: Epoch[48] Iteration[40/54] Loss: 0.456, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:47,755 Signal.train INFO: Epoch[48] Iteration[50/54] Loss: 0.455, Acc: 1.000, Base Lr: 1.73e-06
+2025-12-13 10:10:48,399 Signal.train INFO: Epoch 48 done. Time per batch: 0.300[s] Speed: 213.3[samples/s]
+2025-12-13 10:10:48,401 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:48,402 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:10:48,402 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:59,007 Signal.train INFO: Validation Results - Epoch: 48
+2025-12-13 10:10:59,007 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:10:59,007 Signal.train INFO: CMC curve, Rank-1  :77.0%
+2025-12-13 10:10:59,007 Signal.train INFO: CMC curve, Rank-5  :85.2%
+2025-12-13 10:10:59,008 Signal.train INFO: CMC curve, Rank-10 :90.6%
+2025-12-13 10:10:59,008 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:59,056 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:10:59,057 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:10:59,057 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:10:59,057 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:02,527 Signal.train INFO: Epoch[49] Iteration[10/54] Loss: 0.454, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:05,401 Signal.train INFO: Epoch[49] Iteration[20/54] Loss: 0.454, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:08,240 Signal.train INFO: Epoch[49] Iteration[30/54] Loss: 0.453, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:11,077 Signal.train INFO: Epoch[49] Iteration[40/54] Loss: 0.452, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:13,926 Signal.train INFO: Epoch[49] Iteration[50/54] Loss: 0.453, Acc: 1.000, Base Lr: 6.95e-07
+2025-12-13 10:11:14,844 Signal.train INFO: Epoch 49 done. Time per batch: 0.298[s] Speed: 214.9[samples/s]
+2025-12-13 10:11:14,846 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:14,846 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:11:14,846 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:25,396 Signal.train INFO: Validation Results - Epoch: 49
+2025-12-13 10:11:25,397 Signal.train INFO: mAP: 74.3%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-1  :76.7%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:11:25,397 Signal.train INFO: CMC curve, Rank-10 :90.4%
+2025-12-13 10:11:25,397 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:25,437 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:25,437 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:11:25,437 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:11:25,438 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:29,015 Signal.train INFO: Epoch[50] Iteration[10/54] Loss: 0.451, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:31,897 Signal.train INFO: Epoch[50] Iteration[20/54] Loss: 0.452, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:34,740 Signal.train INFO: Epoch[50] Iteration[30/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:37,573 Signal.train INFO: Epoch[50] Iteration[40/54] Loss: 0.455, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:40,406 Signal.train INFO: Epoch[50] Iteration[50/54] Loss: 0.456, Acc: 1.000, Base Lr: 3.50e-07
+2025-12-13 10:11:41,347 Signal.train INFO: Epoch 50 done. Time per batch: 0.300[s] Speed: 213.2[samples/s]
+2025-12-13 10:11:44,445 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:44,445 Signal.train INFO: Current is the our feature testing!
+2025-12-13 10:11:44,445 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:55,266 Signal.train INFO: Validation Results - Epoch: 50
+2025-12-13 10:11:55,266 Signal.train INFO: mAP: 74.4%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-1  :76.9%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-5  :85.4%
+2025-12-13 10:11:55,266 Signal.train INFO: CMC curve, Rank-10 :90.3%
+2025-12-13 10:11:55,267 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:55,306 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-13 10:11:55,307 Signal.train INFO: Best mAP: 75.2%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-1: 77.6%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-5: 85.9%
+2025-12-13 10:11:55,307 Signal.train INFO: Best Rank-10: 90.9%
+2025-12-13 10:11:55,307 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
