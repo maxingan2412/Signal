@@ -147,25 +147,6 @@ TEST:
   WEIGHT: 
 ckpt_save_path: RGBNT201_all
 ckpt_test_path: test_RNT201
-=> RGBNT201 loaded
-Dataset statistics:
-  ----------------------------------------
-  subset   | # ids | # images | # cameras
-  ----------------------------------------
-  train    |   171 |     3951 |         4
-  query    |    30 |      836 |         2
-  gallery  |    30 |      836 |         2
-  ----------------------------------------
-建立transformer............
-using Transformer_type: ViT-B-16 as a backbone
-model_path (abs): /raid/yij/icme/singlerelated/ViT-B-16.pt
-Resized position embedding: %s to %s torch.Size([197, 768]) torch.Size([129, 768])
-Position embedding resize to height:16 width: 8
-Successfully load ckpt!
-<All keys matched successfully>
-Loading pretrained model from CLIP
-camera number is : 4
-===========Building Signal===========
 2025-12-13 09:48:48,495 Signal INFO: Signal(
   (clip_vision_encoder): build_transformer(
     (base): VisionTransformer(
@@ -380,11 +361,7 @@ camera number is : 4
   )
 )
 2025-12-13 09:48:48,496 Signal INFO: number of parameters:91.166209
-using soft triplet loss for training
-label smooth on, numclasses: 171
 2025-12-13 09:48:48,512 Signal.train INFO: start training
-use CUDA cuda:0
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Start Training >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 2025-12-13 09:48:53,354 Signal.train INFO: Epoch[1] Iteration[10/54] Loss: 10.201, Acc: 0.002, Base Lr: 6.65e-05
 2025-12-13 09:48:56,269 Signal.train INFO: Epoch[1] Iteration[20/54] Loss: 7.671, Acc: 0.013, Base Lr: 6.65e-05
 2025-12-13 09:48:59,177 Signal.train INFO: Epoch[1] Iteration[30/54] Loss: 6.700, Acc: 0.020, Base Lr: 6.65e-05
@@ -394,8 +371,6 @@ use CUDA cuda:0
 2025-12-13 09:49:05,943 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:49:05,943 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:49:05,943 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:49:16,739 Signal.train INFO: Validation Results - Epoch: 1
 2025-12-13 09:49:16,739 Signal.train INFO: mAP: 33.5%
 2025-12-13 09:49:16,740 Signal.train INFO: CMC curve, Rank-1  :33.0%
@@ -417,8 +392,6 @@ The test feature is normalized
 2025-12-13 09:49:39,772 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:49:39,772 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:49:39,773 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:49:50,444 Signal.train INFO: Validation Results - Epoch: 2
 2025-12-13 09:49:50,445 Signal.train INFO: mAP: 49.5%
 2025-12-13 09:49:50,445 Signal.train INFO: CMC curve, Rank-1  :52.0%
@@ -440,8 +413,6 @@ The test feature is normalized
 2025-12-13 09:50:12,005 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:50:12,006 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:50:12,006 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:50:22,586 Signal.train INFO: Validation Results - Epoch: 3
 2025-12-13 09:50:22,586 Signal.train INFO: mAP: 72.2%
 2025-12-13 09:50:22,586 Signal.train INFO: CMC curve, Rank-1  :76.3%
@@ -463,8 +434,6 @@ The test feature is normalized
 2025-12-13 09:50:43,184 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:50:43,184 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:50:43,184 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:50:53,649 Signal.train INFO: Validation Results - Epoch: 4
 2025-12-13 09:50:53,649 Signal.train INFO: mAP: 67.2%
 2025-12-13 09:50:53,649 Signal.train INFO: CMC curve, Rank-1  :67.6%
@@ -486,8 +455,6 @@ The test feature is normalized
 2025-12-13 09:51:10,008 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:51:10,008 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:51:10,008 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:51:20,682 Signal.train INFO: Validation Results - Epoch: 5
 2025-12-13 09:51:20,682 Signal.train INFO: mAP: 70.9%
 2025-12-13 09:51:20,682 Signal.train INFO: CMC curve, Rank-1  :73.1%
@@ -509,8 +476,6 @@ The test feature is normalized
 2025-12-13 09:51:37,002 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:51:37,002 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:51:37,003 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:51:47,637 Signal.train INFO: Validation Results - Epoch: 6
 2025-12-13 09:51:47,637 Signal.train INFO: mAP: 67.5%
 2025-12-13 09:51:47,637 Signal.train INFO: CMC curve, Rank-1  :68.1%
@@ -532,8 +497,6 @@ The test feature is normalized
 2025-12-13 09:52:03,927 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:52:03,927 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:52:03,927 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:52:14,514 Signal.train INFO: Validation Results - Epoch: 7
 2025-12-13 09:52:14,515 Signal.train INFO: mAP: 68.1%
 2025-12-13 09:52:14,515 Signal.train INFO: CMC curve, Rank-1  :67.8%
@@ -555,8 +518,6 @@ The test feature is normalized
 2025-12-13 09:52:31,083 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:52:31,084 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:52:31,084 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:52:41,905 Signal.train INFO: Validation Results - Epoch: 8
 2025-12-13 09:52:41,906 Signal.train INFO: mAP: 70.2%
 2025-12-13 09:52:41,906 Signal.train INFO: CMC curve, Rank-1  :71.8%
@@ -578,8 +539,6 @@ The test feature is normalized
 2025-12-13 09:52:58,323 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:52:58,323 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:52:58,323 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:53:08,971 Signal.train INFO: Validation Results - Epoch: 9
 2025-12-13 09:53:08,971 Signal.train INFO: mAP: 69.2%
 2025-12-13 09:53:08,971 Signal.train INFO: CMC curve, Rank-1  :71.8%
@@ -601,8 +560,6 @@ The test feature is normalized
 2025-12-13 09:53:25,527 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:53:25,528 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:53:25,528 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:53:36,127 Signal.train INFO: Validation Results - Epoch: 10
 2025-12-13 09:53:36,127 Signal.train INFO: mAP: 69.9%
 2025-12-13 09:53:36,127 Signal.train INFO: CMC curve, Rank-1  :73.6%
@@ -624,8 +581,6 @@ The test feature is normalized
 2025-12-13 09:53:52,608 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:53:52,608 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:53:52,608 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:54:03,203 Signal.train INFO: Validation Results - Epoch: 11
 2025-12-13 09:54:03,203 Signal.train INFO: mAP: 70.7%
 2025-12-13 09:54:03,203 Signal.train INFO: CMC curve, Rank-1  :73.8%
@@ -647,8 +602,6 @@ The test feature is normalized
 2025-12-13 09:54:20,184 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:54:20,184 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:54:20,184 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:54:30,866 Signal.train INFO: Validation Results - Epoch: 12
 2025-12-13 09:54:30,866 Signal.train INFO: mAP: 70.8%
 2025-12-13 09:54:30,866 Signal.train INFO: CMC curve, Rank-1  :75.1%
@@ -670,8 +623,6 @@ The test feature is normalized
 2025-12-13 09:54:47,415 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:54:47,415 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:54:47,415 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:54:58,021 Signal.train INFO: Validation Results - Epoch: 13
 2025-12-13 09:54:58,022 Signal.train INFO: mAP: 71.3%
 2025-12-13 09:54:58,022 Signal.train INFO: CMC curve, Rank-1  :75.1%
@@ -693,8 +644,6 @@ The test feature is normalized
 2025-12-13 09:55:14,616 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:55:14,616 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:55:14,617 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:55:25,401 Signal.train INFO: Validation Results - Epoch: 14
 2025-12-13 09:55:25,401 Signal.train INFO: mAP: 71.3%
 2025-12-13 09:55:25,401 Signal.train INFO: CMC curve, Rank-1  :75.8%
@@ -716,8 +665,6 @@ The test feature is normalized
 2025-12-13 09:55:41,808 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:55:41,808 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:55:41,808 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:55:52,486 Signal.train INFO: Validation Results - Epoch: 15
 2025-12-13 09:55:52,486 Signal.train INFO: mAP: 72.3%
 2025-12-13 09:55:52,486 Signal.train INFO: CMC curve, Rank-1  :75.0%
@@ -739,8 +686,6 @@ The test feature is normalized
 2025-12-13 09:56:12,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:56:12,331 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:56:12,331 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:56:23,058 Signal.train INFO: Validation Results - Epoch: 16
 2025-12-13 09:56:23,059 Signal.train INFO: mAP: 72.2%
 2025-12-13 09:56:23,059 Signal.train INFO: CMC curve, Rank-1  :75.2%
@@ -762,8 +707,6 @@ The test feature is normalized
 2025-12-13 09:56:39,716 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:56:39,716 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:56:39,716 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:56:50,586 Signal.train INFO: Validation Results - Epoch: 17
 2025-12-13 09:56:50,586 Signal.train INFO: mAP: 72.1%
 2025-12-13 09:56:50,587 Signal.train INFO: CMC curve, Rank-1  :75.5%
@@ -785,8 +728,6 @@ The test feature is normalized
 2025-12-13 09:57:07,233 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:57:07,233 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:57:07,233 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:57:18,023 Signal.train INFO: Validation Results - Epoch: 18
 2025-12-13 09:57:18,023 Signal.train INFO: mAP: 68.9%
 2025-12-13 09:57:18,023 Signal.train INFO: CMC curve, Rank-1  :71.9%
@@ -808,8 +749,6 @@ The test feature is normalized
 2025-12-13 09:57:34,452 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:57:34,452 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:57:34,452 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:57:45,258 Signal.train INFO: Validation Results - Epoch: 19
 2025-12-13 09:57:45,258 Signal.train INFO: mAP: 70.2%
 2025-12-13 09:57:45,258 Signal.train INFO: CMC curve, Rank-1  :74.0%
@@ -831,8 +770,6 @@ The test feature is normalized
 2025-12-13 09:58:01,676 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:58:01,676 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:58:01,676 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:58:12,588 Signal.train INFO: Validation Results - Epoch: 20
 2025-12-13 09:58:12,588 Signal.train INFO: mAP: 70.2%
 2025-12-13 09:58:12,588 Signal.train INFO: CMC curve, Rank-1  :74.4%
@@ -854,8 +791,6 @@ The test feature is normalized
 2025-12-13 09:58:29,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:58:29,079 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:58:29,079 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:58:39,790 Signal.train INFO: Validation Results - Epoch: 21
 2025-12-13 09:58:39,790 Signal.train INFO: mAP: 70.6%
 2025-12-13 09:58:39,790 Signal.train INFO: CMC curve, Rank-1  :74.8%
@@ -877,8 +812,6 @@ The test feature is normalized
 2025-12-13 09:58:56,611 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:58:56,611 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:58:56,611 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:59:07,327 Signal.train INFO: Validation Results - Epoch: 22
 2025-12-13 09:59:07,327 Signal.train INFO: mAP: 70.4%
 2025-12-13 09:59:07,327 Signal.train INFO: CMC curve, Rank-1  :73.3%
@@ -900,8 +833,6 @@ The test feature is normalized
 2025-12-13 09:59:24,039 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:59:24,039 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:59:24,039 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 09:59:34,996 Signal.train INFO: Validation Results - Epoch: 23
 2025-12-13 09:59:34,996 Signal.train INFO: mAP: 71.6%
 2025-12-13 09:59:34,996 Signal.train INFO: CMC curve, Rank-1  :74.5%
@@ -923,8 +854,6 @@ The test feature is normalized
 2025-12-13 09:59:51,334 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 09:59:51,334 Signal.train INFO: Current is the our feature testing!
 2025-12-13 09:59:51,334 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:00:02,249 Signal.train INFO: Validation Results - Epoch: 24
 2025-12-13 10:00:02,249 Signal.train INFO: mAP: 71.0%
 2025-12-13 10:00:02,249 Signal.train INFO: CMC curve, Rank-1  :73.3%
@@ -946,8 +875,6 @@ The test feature is normalized
 2025-12-13 10:00:18,723 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:00:18,723 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:00:18,723 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:00:29,555 Signal.train INFO: Validation Results - Epoch: 25
 2025-12-13 10:00:29,556 Signal.train INFO: mAP: 70.5%
 2025-12-13 10:00:29,556 Signal.train INFO: CMC curve, Rank-1  :73.8%
@@ -969,8 +896,6 @@ The test feature is normalized
 2025-12-13 10:00:46,464 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:00:46,464 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:00:46,464 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:00:57,155 Signal.train INFO: Validation Results - Epoch: 26
 2025-12-13 10:00:57,155 Signal.train INFO: mAP: 72.0%
 2025-12-13 10:00:57,155 Signal.train INFO: CMC curve, Rank-1  :75.4%
@@ -992,8 +917,6 @@ The test feature is normalized
 2025-12-13 10:01:13,670 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:01:13,671 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:01:13,671 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:01:24,506 Signal.train INFO: Validation Results - Epoch: 27
 2025-12-13 10:01:24,506 Signal.train INFO: mAP: 72.1%
 2025-12-13 10:01:24,506 Signal.train INFO: CMC curve, Rank-1  :76.2%
@@ -1015,8 +938,6 @@ The test feature is normalized
 2025-12-13 10:01:40,998 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:01:40,998 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:01:40,999 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:01:51,822 Signal.train INFO: Validation Results - Epoch: 28
 2025-12-13 10:01:51,823 Signal.train INFO: mAP: 71.3%
 2025-12-13 10:01:51,823 Signal.train INFO: CMC curve, Rank-1  :76.0%
@@ -1038,8 +959,6 @@ The test feature is normalized
 2025-12-13 10:02:08,247 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:02:08,247 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:02:08,247 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:02:19,052 Signal.train INFO: Validation Results - Epoch: 29
 2025-12-13 10:02:19,052 Signal.train INFO: mAP: 71.0%
 2025-12-13 10:02:19,052 Signal.train INFO: CMC curve, Rank-1  :74.9%
@@ -1061,8 +980,6 @@ The test feature is normalized
 2025-12-13 10:02:35,640 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:02:35,640 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:02:35,640 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:02:46,322 Signal.train INFO: Validation Results - Epoch: 30
 2025-12-13 10:02:46,322 Signal.train INFO: mAP: 71.6%
 2025-12-13 10:02:46,322 Signal.train INFO: CMC curve, Rank-1  :76.2%
@@ -1084,8 +1001,6 @@ The test feature is normalized
 2025-12-13 10:03:02,821 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:03:02,821 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:03:02,822 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:03:13,609 Signal.train INFO: Validation Results - Epoch: 31
 2025-12-13 10:03:13,609 Signal.train INFO: mAP: 72.3%
 2025-12-13 10:03:13,609 Signal.train INFO: CMC curve, Rank-1  :77.2%
@@ -1107,8 +1022,6 @@ The test feature is normalized
 2025-12-13 10:03:33,299 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:03:33,299 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:03:33,299 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:03:43,952 Signal.train INFO: Validation Results - Epoch: 32
 2025-12-13 10:03:43,952 Signal.train INFO: mAP: 73.1%
 2025-12-13 10:03:43,952 Signal.train INFO: CMC curve, Rank-1  :78.2%
@@ -1130,8 +1043,6 @@ The test feature is normalized
 2025-12-13 10:04:03,832 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:04:03,832 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:04:03,832 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:04:14,825 Signal.train INFO: Validation Results - Epoch: 33
 2025-12-13 10:04:14,825 Signal.train INFO: mAP: 71.7%
 2025-12-13 10:04:14,825 Signal.train INFO: CMC curve, Rank-1  :76.2%
@@ -1153,8 +1064,6 @@ The test feature is normalized
 2025-12-13 10:04:31,381 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:04:31,381 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:04:31,381 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:04:42,271 Signal.train INFO: Validation Results - Epoch: 34
 2025-12-13 10:04:42,277 Signal.train INFO: mAP: 71.5%
 2025-12-13 10:04:42,277 Signal.train INFO: CMC curve, Rank-1  :75.5%
@@ -1176,8 +1085,6 @@ The test feature is normalized
 2025-12-13 10:04:59,320 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:04:59,320 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:04:59,320 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:05:10,566 Signal.train INFO: Validation Results - Epoch: 35
 2025-12-13 10:05:10,566 Signal.train INFO: mAP: 71.4%
 2025-12-13 10:05:10,567 Signal.train INFO: CMC curve, Rank-1  :75.5%
@@ -1199,8 +1106,6 @@ The test feature is normalized
 2025-12-13 10:05:27,276 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:05:27,276 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:05:27,276 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:05:37,972 Signal.train INFO: Validation Results - Epoch: 36
 2025-12-13 10:05:37,972 Signal.train INFO: mAP: 71.6%
 2025-12-13 10:05:37,972 Signal.train INFO: CMC curve, Rank-1  :75.8%
@@ -1222,8 +1127,6 @@ The test feature is normalized
 2025-12-13 10:05:54,563 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:05:54,564 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:05:54,564 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:06:05,225 Signal.train INFO: Validation Results - Epoch: 37
 2025-12-13 10:06:05,225 Signal.train INFO: mAP: 72.2%
 2025-12-13 10:06:05,225 Signal.train INFO: CMC curve, Rank-1  :76.8%
@@ -1245,8 +1148,6 @@ The test feature is normalized
 2025-12-13 10:06:21,668 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:06:21,668 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:06:21,668 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:06:32,291 Signal.train INFO: Validation Results - Epoch: 38
 2025-12-13 10:06:32,292 Signal.train INFO: mAP: 72.1%
 2025-12-13 10:06:32,292 Signal.train INFO: CMC curve, Rank-1  :76.6%
@@ -1268,8 +1169,6 @@ The test feature is normalized
 2025-12-13 10:06:48,968 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:06:48,968 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:06:48,968 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:06:59,534 Signal.train INFO: Validation Results - Epoch: 39
 2025-12-13 10:06:59,534 Signal.train INFO: mAP: 72.0%
 2025-12-13 10:06:59,534 Signal.train INFO: CMC curve, Rank-1  :76.6%
@@ -1291,8 +1190,6 @@ The test feature is normalized
 2025-12-13 10:07:16,121 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:07:16,121 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:07:16,121 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:07:26,892 Signal.train INFO: Validation Results - Epoch: 40
 2025-12-13 10:07:26,892 Signal.train INFO: mAP: 72.2%
 2025-12-13 10:07:26,892 Signal.train INFO: CMC curve, Rank-1  :77.2%
@@ -1314,8 +1211,6 @@ The test feature is normalized
 2025-12-13 10:07:43,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:07:43,220 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:07:43,220 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:07:53,776 Signal.train INFO: Validation Results - Epoch: 41
 2025-12-13 10:07:53,777 Signal.train INFO: mAP: 72.3%
 2025-12-13 10:07:53,777 Signal.train INFO: CMC curve, Rank-1  :76.4%
@@ -1337,8 +1232,6 @@ The test feature is normalized
 2025-12-13 10:08:10,198 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:08:10,198 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:08:10,198 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:08:20,873 Signal.train INFO: Validation Results - Epoch: 42
 2025-12-13 10:08:20,874 Signal.train INFO: mAP: 72.2%
 2025-12-13 10:08:20,874 Signal.train INFO: CMC curve, Rank-1  :76.4%
@@ -1360,8 +1253,6 @@ The test feature is normalized
 2025-12-13 10:08:37,169 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:08:37,169 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:08:37,169 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:08:48,041 Signal.train INFO: Validation Results - Epoch: 43
 2025-12-13 10:08:48,041 Signal.train INFO: mAP: 72.0%
 2025-12-13 10:08:48,041 Signal.train INFO: CMC curve, Rank-1  :76.2%
@@ -1383,8 +1274,6 @@ The test feature is normalized
 2025-12-13 10:09:04,332 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:09:04,332 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:09:04,332 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:09:15,200 Signal.train INFO: Validation Results - Epoch: 44
 2025-12-13 10:09:15,200 Signal.train INFO: mAP: 72.0%
 2025-12-13 10:09:15,201 Signal.train INFO: CMC curve, Rank-1  :75.8%
@@ -1406,8 +1295,6 @@ The test feature is normalized
 2025-12-13 10:09:31,468 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:09:31,468 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:09:31,468 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:09:42,013 Signal.train INFO: Validation Results - Epoch: 45
 2025-12-13 10:09:42,013 Signal.train INFO: mAP: 71.7%
 2025-12-13 10:09:42,013 Signal.train INFO: CMC curve, Rank-1  :75.5%
@@ -1429,8 +1316,6 @@ The test feature is normalized
 2025-12-13 10:09:58,256 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:09:58,256 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:09:58,256 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:10:08,954 Signal.train INFO: Validation Results - Epoch: 46
 2025-12-13 10:10:08,954 Signal.train INFO: mAP: 72.0%
 2025-12-13 10:10:08,954 Signal.train INFO: CMC curve, Rank-1  :76.0%
@@ -1452,8 +1337,6 @@ The test feature is normalized
 2025-12-13 10:10:25,229 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:10:25,229 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:10:25,229 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:10:35,802 Signal.train INFO: Validation Results - Epoch: 47
 2025-12-13 10:10:35,802 Signal.train INFO: mAP: 72.1%
 2025-12-13 10:10:35,803 Signal.train INFO: CMC curve, Rank-1  :76.4%
@@ -1475,8 +1358,6 @@ The test feature is normalized
 2025-12-13 10:10:51,854 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:10:51,854 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:10:51,854 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:11:02,589 Signal.train INFO: Validation Results - Epoch: 48
 2025-12-13 10:11:02,589 Signal.train INFO: mAP: 71.9%
 2025-12-13 10:11:02,589 Signal.train INFO: CMC curve, Rank-1  :75.4%
@@ -1498,8 +1379,6 @@ The test feature is normalized
 2025-12-13 10:11:18,920 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:11:18,920 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:11:18,920 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:11:29,682 Signal.train INFO: Validation Results - Epoch: 49
 2025-12-13 10:11:29,682 Signal.train INFO: mAP: 71.9%
 2025-12-13 10:11:29,682 Signal.train INFO: CMC curve, Rank-1  :76.0%
@@ -1521,8 +1400,6 @@ The test feature is normalized
 2025-12-13 10:11:49,168 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2025-12-13 10:11:49,168 Signal.train INFO: Current is the our feature testing!
 2025-12-13 10:11:49,168 Signal.train INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The test feature is normalized
-=> Computing DistMat with euclidean_distance
 2025-12-13 10:12:00,011 Signal.train INFO: Validation Results - Epoch: 50
 2025-12-13 10:12:00,011 Signal.train INFO: mAP: 71.6%
 2025-12-13 10:12:00,011 Signal.train INFO: CMC curve, Rank-1  :75.6%
