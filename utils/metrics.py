@@ -286,15 +286,15 @@ class R1_mAP_eval():
         cmc, mAP = eval_func(distmat, q_pids, g_pids, q_camids, g_camids)
 
         # T-sne Visualization
-        # self.showPointMultiModal(feats, real_label=self.pids,
-        #                          draw_label=[258, 260, 269, 271, 273, 280, 282, 284, 285, 286, 287, 289],
-        #                          save_path='zTSNE/201/baseline+SIM+CLS+PAT')
+        self.showPointMultiModal(feats, real_label=self.pids,
+                                 draw_label=[258, 260, 269, 271, 273, 280, 282, 284, 285, 286, 287, 289],
+                                 save_path='/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/tsne/201')
         
         # Visualize top10 results for each query
         #self.visualize_ranked_list_results(distmat, topk=10, save_dir='zrankList/201/baseline+SIM+CLS+PAT',num2vis=200)
         
         
-        #self.plot_similarity_distribution(qf, q_pids,base_dir = 'zSimilarity_pic/201/',condition='baseline+SIM+GLAM')
+        self.plot_similarity_distribution(qf, q_pids,base_dir = '/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/cos/201',condition='baseline+SIM+GLAM')
         
 
         return cmc, mAP, distmat, self.pids, self.camids, qf, gf

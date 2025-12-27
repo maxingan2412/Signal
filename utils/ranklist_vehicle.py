@@ -410,10 +410,10 @@ class R1_mAP_eval():
         #                          save_path='zTSNE/201/baseline+SIM+CLS+PAT')
         
         # Visualize top10 results for each query
-        #self.visualize_ranked_list_results(distmat, topk=10, save_dir='zrankList/201/baseline+SIM+CLS+PAT',num2vis=200)
+        self.visualize_ranked_list_results(distmat, topk=10, save_dir='zrankList/201/baseline+SIM+CLS+PAT',num2vis=200)
         
         
-        #self.plot_similarity_distribution(qf, q_pids,base_dir = 'zSimilarity_pic/201/',condition='baseline')
+        self.plot_similarity_distribution(qf, q_pids,base_dir = 'zSimilarity_pic/201/',condition='baseline')
         
 
         return cmc, mAP, distmat, self.pids, self.camids, qf, gf

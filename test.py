@@ -48,5 +48,5 @@ if __name__ == "__main__":
     basleine+SIM+cls:  6&12_bs-cls_0.2
     baseline+SIM+cls+pat: 6&12_bs-pat_0.2
     '''
-    model.load_param(trained_path = "/media/zpp2/Datamy/lyy/signal_50.pth")
+    model.load_param(trained_path = "/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal_50.pth")
     do_inference(cfg, model, val_loader, num_query, logger, cfg.MODEL.stageName,args.local_rank)

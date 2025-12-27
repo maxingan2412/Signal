@@ -82,8 +82,11 @@ class MaskVisualizer:
         masked_img = img.copy()
         masked_img[visual_mask < 0.5] = 0  
         
-        # 6. 
-        output_dir = f'zmask_vis/{cfg.DATASETS.NAMES}/{modality}'
+        # 6.
+        if hasattr(self, 'output_base_dir'):
+            output_dir = f'{self.output_base_dir}/{modality}'
+        else:
+            output_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/vis/{cfg.DATASETS.NAMES}/{modality}'
         os.makedirs(output_dir, exist_ok=True)
         base_name = os.path.splitext(img_path)[0]
         save_path = f'{output_dir}/{base_name}_mask.jpg'
@@ -118,49 +121,66 @@ if __name__ == "__main__":
     parser.add_argument("--config_file", default="configs/RGBNT201/Signal.yml", help="Path to config file", type=str)
     parser.add_argument("opts", help="Modify config options via command line", default=None, nargs=argparse.REMAINDER)
     parser.add_argument("--pts_path", default="your_path/Signal_50.pth", help="Path to pth file", type=str)
-    
+    parser.add_argument("--keep_ratio", default=None, type=float, help="Token keep ratio (e.g., 0.75 for 75%)")
+    parser.add_argument("--output_dir", default=None, type=str, help="Output directory for visualizations")
+
     args = parser.parse_args()
-    
-    # 
+
+    #
     if args.config_file:
         cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
     cfg.freeze()
-    
-    # 
+
+    #
     os.environ['CUDA_VISIBLE_DEVICES'] = cfg.MODEL.DEVICE_ID
     device = "cuda"
-    
-    # 
+
+    #
     train_loader, train_loader_normal, val_loader, num_query, num_classes, camera_num, view_num = make_dataloader(cfg)
     model = make_frame(cfg, num_class=num_classes, camera_num=camera_num, view_num=view_num)
     model.load_param(args.pts_path)
     model.eval()
     model.to(device)
-    
-    # 
-    target_layer = model.SIM.token_selection  
-    visualizer = MaskVisualizer(model, target_layer)
-    
-    # 
+
+    # 设置 keep_ratio（如果指定）
+    if args.keep_ratio is not None:
+        model.SIM.token_selection.keep_ratio = args.keep_ratio
+        print(f"Set keep_ratio to {args.keep_ratio} (keeping {int(128 * args.keep_ratio)} / 128 tokens)")
+
+    # 设置输出目录
+    if args.output_dir is not None:
+        output_base_dir = args.output_dir
+    else:
+        output_base_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/vis/{cfg.DATASETS.NAMES}'
+
+    # 获取 token_selection 层用于访问 mask
+    token_selection = model.SIM.token_selection
+    visualizer = MaskVisualizer(model, token_selection)
+    visualizer.output_base_dir = output_base_dir  # 传递给 visualizer
+
+    #
     for n_iter, (img, pid, camid, camids, target_view, imgpath) in enumerate(val_loader):
-        img = Newdict({
+        img_dict = {
             'RGB': img['RGB'].to(device),
             'NI': img['NI'].to(device),
             'TI': img['TI'].to(device),
-            'cam_label': camids.to(device),
-            'view_label': target_view.to(device)
-        })
-        
-        # 
+        }
+        cam_label = camids.to(device)
+        view_label = target_view.to(device)
+
+        #
         with torch.no_grad():
-            _ = model(img)
-        
-        # 
-        for i in range(img['RGB'].size(0)):  
+            _ = model(img_dict, cam_label=cam_label, view_label=view_label)
+
+        # 从 token_selection 获取保存的 masks
+        masks = token_selection.last_masks
+
+        #
+        for i in range(img['RGB'].size(0)):
             for modality in ['RGB', 'NI', 'TI']:
-                mask = visualizer.masks[modality][i]  
-                
+                mask = masks[modality][i]
+
                 visualizer.visualize_mask_on_image(imgpath[i], mask, modality, cfg)
         
         

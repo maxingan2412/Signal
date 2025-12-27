@@ -1,6 +1,6 @@
-2025-11-12 13:05:06,710 Signal INFO: Namespace(config_file='configs/RGBNT201/Signal.yml', opts=[], local_rank=1)
-2025-11-12 13:05:06,710 Signal INFO: Loaded configuration file configs/RGBNT201/Signal.yml
-2025-11-12 13:05:06,710 Signal INFO: 
+2025-12-26 22:25:13,559 Signal INFO: Namespace(config_file='configs/RGBNT201/Signal.yml', opts=[], local_rank=1)
+2025-12-26 22:25:13,560 Signal INFO: Loaded configuration file configs/RGBNT201/Signal.yml
+2025-12-26 22:25:13,560 Signal INFO: 
 MODEL:
   TRANSFORMER_TYPE: 'ViT-B-16'
   STRIDE_SIZE: [ 16, 16 ]
@@ -53,7 +53,8 @@ TEST:
 OUTPUT_DIR: '.'
 ckpt_save_path: 'RGBNT201_all'
 ckpt_test_path:  'test_RNT201'
-2025-11-12 13:05:06,711 Signal INFO: Running with config:
+
+2025-12-26 22:25:13,560 Signal INFO: Running with config:
 DATALOADER:
   NUM_INSTANCE: 8
   NUM_WORKERS: 12
@@ -143,10 +144,10 @@ TEST:
   WEIGHT: 
 ckpt_save_path: RGBNT201_all
 ckpt_test_path: test_RNT201
-2025-11-12 13:05:11,127 Signal.test INFO: Enter inferencing
-2025-11-12 13:05:11,826 Signal.test INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2025-11-12 13:05:23,048 Signal.test INFO: Validation Results 
-2025-11-12 13:05:23,048 Signal.test INFO: mAP: 80.3%
-2025-11-12 13:05:23,048 Signal.test INFO: CMC curve, Rank-1  :85.2%
-2025-11-12 13:05:23,048 Signal.test INFO: CMC curve, Rank-5  :91.4%
-2025-11-12 13:05:23,048 Signal.test INFO: CMC curve, Rank-10 :93.7%
+2025-12-26 22:25:17,213 Signal.test INFO: Enter inferencing
+2025-12-26 22:25:17,406 Signal.test INFO: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2025-12-26 22:26:24,560 Signal.test INFO: Validation Results 
+2025-12-26 22:26:24,560 Signal.test INFO: mAP: 80.3%
+2025-12-26 22:26:24,561 Signal.test INFO: CMC curve, Rank-1  :85.2%
+2025-12-26 22:26:24,561 Signal.test INFO: CMC curve, Rank-5  :91.4%
+2025-12-26 22:26:24,561 Signal.test INFO: CMC curve, Rank-10 :93.7%

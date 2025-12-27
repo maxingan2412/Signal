@@ -30,16 +30,18 @@ class TokenSelection(nn.Module):
         selected_patches: 经过 mask 筛选的 patches [B, L, dim]
     """
 
-    def __init__(self, dim, k=112):
+    def __init__(self, dim, k=112, keep_ratio=None):
         """
         参数:
             dim: 特征维度 (512 for CLIP ViT-B-16)
             k: 模态内选择的 token 数量 (k1=k, k2=2k 用于模态间)
+            keep_ratio: 精确控制保留比例 (如 0.75 表示保留 75%)，设置后会覆盖 k 的效果
         """
         super().__init__()
         self.dim = dim
         self.k1 = k      # 模态内选择数量
         self.k2 = 2*k    # 模态间选择数量
+        self.keep_ratio = keep_ratio  # 精确保留比例
         # 用于模态间选择的投影层
         self.W_q = nn.Linear(dim, dim)  # Query 投影
         self.W_k = nn.Linear(dim, dim)  # Key 投影
@@ -248,11 +250,77 @@ class TokenSelection(nn.Module):
         nir_mask = (nir_mask_c + nir_mask_i > 0).float()
         tir_mask = (tir_mask_c + tir_mask_i > 0).float()
 
-        # 4. 应用 mask 筛选 patches
+        # 4. 如果设置了 keep_ratio，精确控制保留比例（固定保留 max_keep 个）
+        if self.keep_ratio is not None:
+            L = rgb_patches.size(1)  # 128
+            max_keep = int(L * self.keep_ratio)  # 如 0.75 * 128 = 96
+
+            # 计算每个 patch 的重要性分数（用于排序）
+            rgb_scores = torch.bmm(rgb_global.unsqueeze(1), rgb_patches.transpose(1, 2)).squeeze(1)  # [B, L]
+            nir_scores = torch.bmm(nir_global.unsqueeze(1), nir_patches.transpose(1, 2)).squeeze(1)
+            tir_scores = torch.bmm(tir_global.unsqueeze(1), tir_patches.transpose(1, 2)).squeeze(1)
+
+            # 对每个样本，精确保留 max_keep 个（不多不少）
+            batch_size = rgb_patches.size(0)
+            for i in range(batch_size):
+                # RGB: 精确保留 max_keep 个
+                current_count = int(rgb_mask[i].sum().item())
+                if current_count > max_keep:
+                    # 需要减少：只保留最重要的 max_keep 个
+                    selected_indices = rgb_mask[i, :, 0].nonzero(as_tuple=True)[0]
+                    scores_selected = rgb_scores[i, selected_indices]
+                    _, top_indices = torch.topk(scores_selected, max_keep)
+                    new_mask = torch.zeros_like(rgb_mask[i, :, 0])
+                    new_mask[selected_indices[top_indices]] = 1
+                    rgb_mask[i, :, 0] = new_mask
+                elif current_count < max_keep:
+                    # 需要增加：从未选中的 patches 中补充最重要的
+                    unselected_indices = (rgb_mask[i, :, 0] == 0).nonzero(as_tuple=True)[0]
+                    scores_unselected = rgb_scores[i, unselected_indices]
+                    need_add = max_keep - current_count
+                    _, top_indices = torch.topk(scores_unselected, min(need_add, len(unselected_indices)))
+                    rgb_mask[i, unselected_indices[top_indices], 0] = 1
+
+                # NI: 精确保留 max_keep 个
+                current_count = int(nir_mask[i].sum().item())
+                if current_count > max_keep:
+                    selected_indices = nir_mask[i, :, 0].nonzero(as_tuple=True)[0]
+                    scores_selected = nir_scores[i, selected_indices]
+                    _, top_indices = torch.topk(scores_selected, max_keep)
+                    new_mask = torch.zeros_like(nir_mask[i, :, 0])
+                    new_mask[selected_indices[top_indices]] = 1
+                    nir_mask[i, :, 0] = new_mask
+                elif current_count < max_keep:
+                    unselected_indices = (nir_mask[i, :, 0] == 0).nonzero(as_tuple=True)[0]
+                    scores_unselected = nir_scores[i, unselected_indices]
+                    need_add = max_keep - current_count
+                    _, top_indices = torch.topk(scores_unselected, min(need_add, len(unselected_indices)))
+                    nir_mask[i, unselected_indices[top_indices], 0] = 1
+
+                # TI: 精确保留 max_keep 个
+                current_count = int(tir_mask[i].sum().item())
+                if current_count > max_keep:
+                    selected_indices = tir_mask[i, :, 0].nonzero(as_tuple=True)[0]
+                    scores_selected = tir_scores[i, selected_indices]
+                    _, top_indices = torch.topk(scores_selected, max_keep)
+                    new_mask = torch.zeros_like(tir_mask[i, :, 0])
+                    new_mask[selected_indices[top_indices]] = 1
+                    tir_mask[i, :, 0] = new_mask
+                elif current_count < max_keep:
+                    unselected_indices = (tir_mask[i, :, 0] == 0).nonzero(as_tuple=True)[0]
+                    scores_unselected = tir_scores[i, unselected_indices]
+                    need_add = max_keep - current_count
+                    _, top_indices = torch.topk(scores_unselected, min(need_add, len(unselected_indices)))
+                    tir_mask[i, unselected_indices[top_indices], 0] = 1
+
+        # 5. 应用 mask 筛选 patches
         # 公式 (15): f̃_m^p = f_m^p ⊙ M_m
         rgb_selected = rgb_patches * rgb_mask  # [B, 128, 512] 未选中位置为 0
         nir_selected = nir_patches * nir_mask
         tir_selected = tir_patches * tir_mask
+
+        # 保存 mask 供可视化使用
+        self.last_masks = {'RGB': rgb_mask, 'NI': nir_mask, 'TI': tir_mask}
 
         return rgb_selected, nir_selected, tir_selected
 
@@ -371,15 +439,16 @@ class Select_Interactive_Module(nn.Module):
         final_feature: [B, 1536] 融合后的特征向量
     """
 
-    def __init__(self, dim, k=112):
+    def __init__(self, dim, k=112, keep_ratio=None):
         """
         参数:
             dim: 特征维度 (512)
             k: Token 选择数量 (默认 112，实际使用 cfg.MODEL.TOPK)
+            keep_ratio: 精确控制保留比例 (如 0.75 表示保留 75%)
         """
         super().__init__()
         num_heads = 8
-        self.token_selection = TokenSelection(dim, k)
+        self.token_selection = TokenSelection(dim, k, keep_ratio)
         self.modal_interactive = ModalInteractive(dim, num_heads)
 
     def forward(self, rgb_patches, nir_patches, tir_patches, rgb_global, nir_global, tir_global):
