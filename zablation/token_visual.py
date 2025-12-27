@@ -4,8 +4,6 @@ import cv2
 import numpy as np
 from PIL import Image
 import torch
-import torch.nn.functional as F
-import matplotlib.pyplot as plt
 
 from config import cfg
 from data import make_dataloader
@@ -86,25 +84,14 @@ class MaskVisualizer:
         if hasattr(self, 'output_base_dir'):
             output_dir = f'{self.output_base_dir}/{modality}'
         else:
-            output_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/vis/{cfg.DATASETS.NAMES}/{modality}'
+            output_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/visnew/{cfg.DATASETS.NAMES}/{modality}'
         os.makedirs(output_dir, exist_ok=True)
         base_name = os.path.splitext(img_path)[0]
         save_path = f'{output_dir}/{base_name}_mask.jpg'
-        
-        # 
-        plt.figure(figsize=(12, 6))
-        plt.subplot(1, 2, 1)
-        plt.imshow(img)
-        plt.title('Original Image')
-        plt.axis('off')
-        
-        plt.subplot(1, 2, 2)
-        plt.imshow(masked_img)
-        plt.title('Masked Image (white=kept, black=discarded)')
-        plt.axis('off')
-        
-        plt.savefig(save_path, bbox_inches='tight')
-        plt.close()
+
+        # 直接保存处理后的图像
+        masked_img_bgr = cv2.cvtColor(masked_img, cv2.COLOR_RGB2BGR)
+        cv2.imwrite(save_path, masked_img_bgr)
         
     def __del__(self):
         self.hook.remove()
@@ -121,7 +108,7 @@ if __name__ == "__main__":
     parser.add_argument("--config_file", default="configs/RGBNT201/Signal.yml", help="Path to config file", type=str)
     parser.add_argument("opts", help="Modify config options via command line", default=None, nargs=argparse.REMAINDER)
     parser.add_argument("--pts_path", default="your_path/Signal_50.pth", help="Path to pth file", type=str)
-    parser.add_argument("--keep_ratio", default=None, type=float, help="Token keep ratio (e.g., 0.75 for 75%)")
+    parser.add_argument("--keep_ratio", default=0.75, type=float, help="Token keep ratio (0.75 = keep 75%, remove 25%)")
     parser.add_argument("--output_dir", default=None, type=str, help="Output directory for visualizations")
 
     args = parser.parse_args()
@@ -143,16 +130,15 @@ if __name__ == "__main__":
     model.eval()
     model.to(device)
 
-    # 设置 keep_ratio（如果指定）
-    if args.keep_ratio is not None:
-        model.SIM.token_selection.keep_ratio = args.keep_ratio
-        print(f"Set keep_ratio to {args.keep_ratio} (keeping {int(128 * args.keep_ratio)} / 128 tokens)")
+    # 设置 keep_ratio（默认0.75，去掉25%）
+    model.SIM.token_selection.keep_ratio = args.keep_ratio
+    print(f"Set keep_ratio to {args.keep_ratio} (keeping {int(128 * args.keep_ratio)} / 128 tokens, removing {int(128 * (1 - args.keep_ratio))} tokens)")
 
     # 设置输出目录
     if args.output_dir is not None:
         output_base_dir = args.output_dir
     else:
-        output_base_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/vis/{cfg.DATASETS.NAMES}'
+        output_base_dir = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/Signal/visnew/{cfg.DATASETS.NAMES}'
 
     # 获取 token_selection 层用于访问 mask
     token_selection = model.SIM.token_selection
@@ -188,4 +174,4 @@ if __name__ == "__main__":
             break
     
     print("Mask visualization completed!")
-    print(f"Results saved in: mask_vis/{cfg.DATASETS.NAMES}/")
+    print(f"Results saved in: visnew/{cfg.DATASETS.NAMES}/")
