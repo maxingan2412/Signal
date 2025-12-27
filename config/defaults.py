@@ -43,9 +43,11 @@ _C.MODEL.DROP_OUT = 0.0
 _C.MODEL.ATT_DROP_RATE = 0.0
 _C.MODEL.TRANSFORMER_TYPE = 'vit_base_patch16_224'
 _C.MODEL.STRIDE_SIZE = [16, 16]
-_C.MODEL.USE_A = False  
-_C.MODEL.USE_B = False  
+_C.MODEL.USE_A = False
+_C.MODEL.USE_B = False
 _C.MODEL.TOPK = 64
+_C.MODEL.FIXED_KEEP_RATIO = False  # 是否启用固定保留比例（精确控制每张图保留的token数）
+_C.MODEL.KEEP_RATIO = 0.75  # 保留比例，仅在 FIXED_KEEP_RATIO=True 时生效
 _C.MODEL.stageName = 'CLS '
 # SIE Parameter
 _C.MODEL.SIE_COE = 3.0

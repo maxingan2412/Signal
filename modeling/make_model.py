@@ -104,7 +104,8 @@ class Signal(nn.Module):
             num = 3  # 三个模态
             # SIM 输入: 三模态的 patches 和 globals
             # SIM 输出: 融合特征 [B, 3*feat_dim]
-            self.SIM = Select_Interactive_Module(self.feat_dim, k=int(cfg.MODEL.TOPK))
+            keep_ratio = cfg.MODEL.KEEP_RATIO if cfg.MODEL.FIXED_KEEP_RATIO else None
+            self.SIM = Select_Interactive_Module(self.feat_dim, k=int(cfg.MODEL.TOPK), keep_ratio=keep_ratio)
 
             # SIM 输出的分类器
             self.classifier_var = nn.Linear(num*self.feat_dim, self.num_classes, bias=False)
