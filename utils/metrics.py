@@ -235,9 +235,9 @@ class R1_mAP_eval():
         # Store image paths as simple names
         self.img_paths = []
         self.img_prefixes = {
-            'RGB': '/home/maxingan/copyfromssd/workfromlocal/singlerealted/RGBNT201/test/RGB/',
-            'NIR': '/home/maxingan/copyfromssd/workfromlocal/singlerealted/RGBNT201/test/NI/',
-            'TIR': '/home/maxingan/copyfromssd/workfromlocal/singlerealted/RGBNT201/test/TI/'
+            'RGB': '../RGBNT201/test/RGB/',
+            'NIR': '../RGBNT201/test/NI/',
+            'TIR': '../RGBNT201/test/TI/'
         }
 
     def update(self, output):  # called once for each batch
