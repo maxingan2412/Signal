@@ -55,9 +55,12 @@ class SimpleCAM:
         
     def __call__(self, input_tensor, class_idx=None):
         self.model.eval()
-        
+
         with torch.no_grad():
-            outputs = self.model(input_tensor)[1]  # [batch_size, num_classes]
+            # 提取 cam_label 和 view_label
+            cam_label = input_tensor.get('cam_label', None)
+            view_label = input_tensor.get('view_label', None)
+            outputs = self.model(input_tensor, cam_label=cam_label, view_label=view_label)[1]  # [batch_size, num_classes]
             
         if class_idx is None:
             _, class_idx = torch.max(outputs, dim=1)
@@ -107,7 +110,7 @@ def show_cam(index, imgpath, grayscale_cam, modality, cfg):
 
     # Load image based on dataset and modality
     if cfg.DATASETS.NAMES == 'RGBNT201':
-        img_path = f'/media/zpp2/Datamy/lyy/512/data/RGBNT201/test/{modality}/{img_path}'
+        img_path = f'/home/maxingan/copyfromssd/workfromlocal/singlerealted/RGBNT201/test/{modality}/{img_path}'
     elif cfg.DATASETS.NAMES == 'RGBNT100':
         img_path = f'../RGBNT100/rgbir/query/{img_path}'
 

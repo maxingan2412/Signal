@@ -251,7 +251,7 @@ class R1_mAP():
         distmat = distmat.cpu().numpy()
         cmc, mAP = eval_func_msrv(distmat, q_pids, g_pids, q_camids, g_camids, q_sceneids, g_sceneids)
         # Visualize top-20 results for each query
-        self.visualize_ranked_list_results(distmat, topk=5, save_dir='zrankList/310/baseline+SIM+CLS+PAT')
+        #self.visualize_ranked_list_results(distmat, topk=5, save_dir='zrankList/310/baseline+SIM+CLS+PAT')
         return cmc, mAP, distmat, self.pids, self.camids, qf, gf
     
     def visualize_ranked_list_results(self, distmat, topk=5, save_dir='vis_results'):
@@ -410,10 +410,10 @@ class R1_mAP_eval():
         #                          save_path='zTSNE/201/baseline+SIM+CLS+PAT')
         
         # Visualize top10 results for each query
-        self.visualize_ranked_list_results(distmat, topk=10, save_dir='zrankList/201/baseline+SIM+CLS+PAT',num2vis=200)
-        
-        
-        self.plot_similarity_distribution(qf, q_pids,base_dir = 'zSimilarity_pic/201/',condition='baseline')
+        #self.visualize_ranked_list_results(distmat, topk=10, save_dir='zrankList/201/baseline+SIM+CLS+PAT',num2vis=200)
+
+
+        #self.plot_similarity_distribution(qf, q_pids,base_dir = 'zSimilarity_pic/201/',condition='baseline')
         
 
         return cmc, mAP, distmat, self.pids, self.camids, qf, gf
