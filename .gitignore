@@ -1,0 +1,25 @@
+
+# ===== ML / training artifacts =====
+*.par
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.h5
+*.pkl
+*.joblib
+*.npz
+*.npy
+
+# archives
+*.tar
+*.tar.gz
+*.tgz
+
+# logs / outputs
+log/
+logs/
+runs/
+wandb/
+output/
+outputs/
